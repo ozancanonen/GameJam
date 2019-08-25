@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
         //returns a value between -1 and 1 according to the pressed buttons that are defined for Horizontal in Unity(they are changeable)
         //we assign these values to "movement"
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxis("Horizontal");
+        movement.y = Input.GetAxis("Vertical");
     }
 
     void FlipCharacterinXAxisIfNeeded()
@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
             anim.SetFloat("Vertical", movement.y);
         }
         anim.SetFloat("Speed", movement.magnitude);
+        Debug.Log(movement.magnitude);
         //i tried out the make the player look the way it just moved but for now it doesn't work compeletely i'm working on it
 
     }
