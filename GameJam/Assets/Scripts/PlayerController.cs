@@ -20,25 +20,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //returns a value between -1 and 1 according to the pressed buttons that are defined for Horizontal in Unity(they are changeable)
-        //we assign these values to "movement"
-        movement.x= Input.GetAxisRaw("Horizontal");
-        movement.y= Input.GetAxisRaw("Vertical");
-
-        //we set the values we get from the player for the animator
-        anim.SetFloat("Horizontal", movement.x);
-        anim.SetFloat("Vertical", movement.y);
-        anim.SetFloat("Speed", movement.magnitude);
-
-        //i think if we make the animation itself with the mirrored sprites the code will be cleaner but for now i think we can use this 
-        if(movement.x<0)
-        {
-            sp.flipX = true;
-        }
-        else
-        {
-            sp.flipX = false;
-        }
+        GetCharacterInputs();
+        Animate();
+        FlipCharacterinXAxisIfNeeded();
     }
 
     //we are using FixedUpdate for all physical related stuff 
@@ -50,4 +34,38 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    void GetCharacterInputs()
+    {
+        //returns a value between -1 and 1 according to the pressed buttons that are defined for Horizontal in Unity(they are changeable)
+        //we assign these values to "movement"
+
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+    }
+
+    void FlipCharacterinXAxisIfNeeded()
+    {
+        //i think if we make the animation itself with the mirrored sprites the code will be cleaner but for now i think we can use this 
+        if (movement.x < 0)
+        {
+            sp.flipX = true;
+        }
+        else
+        {
+            sp.flipX = false;
+        }
+    }
+
+    void Animate()
+    {
+        //we set the values we get from the player for the animator
+        if (movement != Vector2.zero)
+        {
+            anim.SetFloat("Horizontal", movement.x);
+            anim.SetFloat("Vertical", movement.y);
+        }
+        anim.SetFloat("Speed", movement.magnitude);
+        //i tried out the make the player look the way it just moved but for now it doesn't work compeletely i'm working on it
+
+    }
 }
