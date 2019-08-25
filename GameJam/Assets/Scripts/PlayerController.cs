@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject bullet;
+    public GameObject wall;
+    public GameObject fakeWall;
     public float moveSpeed;
     private Vector2 movement;
+    public Transform firingPos;
 
     private SpriteRenderer sp;
     private Rigidbody2D rb;
@@ -20,9 +24,21 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
+        if (Input.GetButtonDown("Jump"))
+        {
+            Wall();
+        }
+        if (Input.GetButtonDown("Fire3"))
+        {
+            FakeWall();
+        }
         GetCharacterInputs();
         Animate();
-        FlipCharacterinXAxisIfNeeded();
+        ProjectileRotationManager();
     }
 
     //we are using FixedUpdate for all physical related stuff 
@@ -33,40 +49,66 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed*Time.fixedDeltaTime);
     }
 
-
+    //returns a value between -1 and 1 according to the pressed buttons that are defined for Horizontal in Unity(they are changeable)
+    //we assign these values to "movement"
     void GetCharacterInputs()
     {
-        //returns a value between -1 and 1 according to the pressed buttons that are defined for Horizontal in Unity(they are changeable)
-        //we assign these values to "movement"
-
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
     }
 
-    void FlipCharacterinXAxisIfNeeded()
+    void ProjectileRotationManager()
     {
-        //i think if we make the animation itself with the mirrored sprites the code will be cleaner but for now i think we can use this 
-        if (movement.x < 0)
+        //
+        if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
         {
-            sp.flipX = true;
+            if (movement.x > 0)
+            {
+                firingPos.rotation = Quaternion.Euler(0, 0,0 );
+            }
+            else
+            {
+                firingPos.rotation = Quaternion.Euler(0, 0, 180);
+            }
         }
-        else
+        if (Mathf.Abs(movement.y) > Mathf.Abs(movement.x))
         {
-            sp.flipX = false;
+            if (movement.y > 0)
+            {
+                firingPos.rotation = Quaternion.Euler(0, 0, 90f);
+            }
+            else
+            {
+                firingPos.rotation = Quaternion.Euler(0, 0, 270f);
+            }
         }
     }
 
+    //we set the values we get from the player for the animator
     void Animate()
     {
-        //we set the values we get from the player for the animator
+        //To make the player look the way it last moved when stopped we don't make the movement Vector2 at he last frame to trigger
+        //the right animation in the blend tree
         if (movement != Vector2.zero)
         {
             anim.SetFloat("Horizontal", movement.x);
             anim.SetFloat("Vertical", movement.y);
-        }
+        } 
         anim.SetFloat("Speed", movement.magnitude);
-        Debug.Log(movement.magnitude);
-        //i tried out the make the player look the way it just moved but for now it doesn't work compeletely i'm working on it
+    }
 
+    void Shoot()
+    {
+        Instantiate(bullet, firingPos.position, firingPos.rotation);
+    }
+
+    void Wall()
+    {
+        Instantiate(wall, firingPos.position, firingPos.rotation);
+    }
+
+    void FakeWall()
+    {
+        Instantiate(fakeWall, firingPos.position, firingPos.rotation);
     }
 }
