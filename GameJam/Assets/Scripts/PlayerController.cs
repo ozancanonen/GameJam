@@ -5,13 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
-
     private Vector2 movement;
+
+    private SpriteRenderer sp;
     private Rigidbody2D rb;
+    private Animator anim;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        anim = gameObject.GetComponent<Animator>();
+        sp = gameObject.GetComponent < SpriteRenderer>();
     }
 
     void Update()
@@ -20,6 +24,21 @@ public class PlayerController : MonoBehaviour
         //we assign these values to "movement"
         movement.x= Input.GetAxisRaw("Horizontal");
         movement.y= Input.GetAxisRaw("Vertical");
+
+        //we set the values we get from the player for the animator
+        anim.SetFloat("Horizontal", movement.x);
+        anim.SetFloat("Vertical", movement.y);
+        anim.SetFloat("Speed", movement.magnitude);
+
+        //i think if we make the animation itself with the mirrored sprites the code will be cleaner but for now i think we can use this 
+        if(movement.x<0)
+        {
+            sp.flipX = true;
+        }
+        else
+        {
+            sp.flipX = false;
+        }
     }
 
     //we are using FixedUpdate for all physical related stuff 
