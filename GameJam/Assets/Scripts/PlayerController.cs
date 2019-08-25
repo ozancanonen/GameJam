@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public string enemyBulletTag;
+    public string horizontalMovementInputButtons;
+    public string verticalMovementInputButtons;
     public GameObject bullet;
     public GameObject wall;
     public GameObject fakeWall;
+    public Slider HealthSliderObject;
     public float moveSpeed;
+    public float playerHealth=100;
     private Vector2 movement;
     public Transform firingPos;
 
@@ -53,10 +59,20 @@ public class PlayerController : MonoBehaviour
     //we assign these values to "movement"
     void GetCharacterInputs()
     {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+        movement.x = Input.GetAxis(horizontalMovementInputButtons);
+        movement.y = Input.GetAxis(verticalMovementInputButtons);
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == enemyBulletTag)
+        {
+            playerHealth -= 10;
+            HealthSliderObject.value = playerHealth;
+            Destroy(col.gameObject);
+        }
+        
+    }
     void ProjectileRotationManager()
     {
         //

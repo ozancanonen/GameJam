@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - bullet
+  - player1Bullet
+  - player2Bullet
   layers:
   - Default
   - TransparentFX
