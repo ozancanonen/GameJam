@@ -50,7 +50,6 @@ public class Player : MonoBehaviour
             if (canShoot)
             {
                 StartCoroutine(Shoot());
-
             }
         }
 
@@ -173,13 +172,13 @@ public class Player : MonoBehaviour
 
     void Wall()
     {
-        particleObject = Instantiate(wall, firingPos.position, firingPos.rotation);
+        particleObject = Instantiate(wall, bulletSpawnPos.position, firingPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
     }
 
     void FakeWall()
     {
-        particleObject = Instantiate(fakeWall, firingPos.position, firingPos.rotation);
+        particleObject = Instantiate(fakeWall, bulletSpawnPos.position, firingPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
     }
 
