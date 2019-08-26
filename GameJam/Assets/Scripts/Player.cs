@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public string playerName;
     public string enemyBulletTag;
     public string horizontalMovementInputButtons;
     public string verticalMovementInputButtons;
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
 
     public Slider HealthSliderObject;
     public float moveSpeed;
-    public float playerHealth=100;
+    public float playerHealth;
     private Vector2 movement;
     public Transform firingPos;
     public Transform bulletSpawnPos;
@@ -102,6 +103,7 @@ public class Player : MonoBehaviour
             if (playerHealth <= 0)
             {
                 Dead();
+                gm.PlayerIsDeath(playerName);
                 Destroy(gameObject);
             }
         }
@@ -158,7 +160,7 @@ public class Player : MonoBehaviour
         particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
         StartCoroutine(DestroyThisAFter(particleObject, 1));
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         canShoot = true;
 
     }
