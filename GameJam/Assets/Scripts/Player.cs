@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public Transform bulletSpawnPos;
     public Transform particleSpawnPos;
     private GameObject particleObject;
+    private bool canShoot;
 
     private SpriteRenderer sp;
     private Rigidbody2D rb;
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        canShoot = true;
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         sp = gameObject.GetComponent < SpriteRenderer>();
@@ -43,7 +45,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButton(fireMovementInputButtons))
         {
-            Shoot();
+            if (canShoot)
+            {
+                StartCoroutine(Shoot());
+
+            }
+
         }
         if (Input.GetButtonDown(Skill1MovementInputButtons))
         {
@@ -133,12 +140,16 @@ public class Player : MonoBehaviour
         anim.SetFloat("Speed", movement.magnitude);
     }
 
-    void Shoot()
+    IEnumerator Shoot()
     {
+        canShoot = false;
         Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
         particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
         StartCoroutine(DestroyThisAFter(particleObject, 1));
+        yield return new WaitForSeconds(0.5f);
+        canShoot = true;
+
     }
 
     void Dead()
