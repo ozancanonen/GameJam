@@ -53,11 +53,15 @@ public class Player : MonoBehaviour
         {
             if (Input.GetButtonDown(fireMovementInputButtons))
             {
+<<<<<<< HEAD
                 if (canShoot)
                 {
                     canShoot = false;
                     StartCoroutine(Shoot());
                 }
+=======
+                StartCoroutine(Shoot());
+>>>>>>> 35840f750ac706a0d4e6228e702bb9fcff070756
             }
 
             if (Input.GetButtonDown(Skill1MovementInputButtons))
