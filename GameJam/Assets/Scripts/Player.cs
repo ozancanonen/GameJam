@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown(fireMovementInputButtons))
+        if (Input.GetButton(fireMovementInputButtons))
         {
             Shoot();
         }
