@@ -70,8 +70,8 @@ public class Player : MonoBehaviour
     //we assign these values to "movement"
     void GetCharacterInputs()
     {
-        movement.x = Input.GetAxis(horizontalMovementInputButtons);
-        movement.y = Input.GetAxis(verticalMovementInputButtons);
+        movement.x = Input.GetAxisRaw(horizontalMovementInputButtons);
+        movement.y = Input.GetAxisRaw(verticalMovementInputButtons);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
