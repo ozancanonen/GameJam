@@ -43,23 +43,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown(fireMovementInputButtons))
+        if (Input.GetButtonDown(fireMovementInputButtons) && canShoot)
         {
-            if (canShoot)
-            {
                 StartCoroutine(Shoot());
-
-            }
-        }
-
-        if (Input.GetButton(fireMovementInputButtons))
-        {
-            if (canShoot)
-            {
-                StartCoroutine(Shoot());
-
-            }
-
         }
         if (Input.GetButtonDown(Skill1MovementInputButtons))
         {
@@ -151,12 +137,15 @@ public class Player : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        canShoot = false;
-        Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
-        particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
-        particleObject.transform.parent = particleParentObject.transform;
-        StartCoroutine(DestroyThisAFter(particleObject, 1));
-        yield return new WaitForSeconds(0.5f);
+        while (Input.GetButton(fireMovementInputButtons))
+        {
+            canShoot = false;
+            Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
+            particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
+            particleObject.transform.parent = particleParentObject.transform;
+            StartCoroutine(DestroyThisAFter(particleObject, 1));
+            yield return new WaitForSeconds(0.5f);
+        }
         canShoot = true;
 
     }
