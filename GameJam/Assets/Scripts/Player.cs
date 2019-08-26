@@ -8,14 +8,22 @@ public class Player : MonoBehaviour
     public string enemyBulletTag;
     public string horizontalMovementInputButtons;
     public string verticalMovementInputButtons;
+
+    public GameObject particleParentObject;
     public GameObject bullet;
+    public GameObject bulletParticles;
+    public GameObject deadParticles;
     public GameObject wall;
     public GameObject fakeWall;
+
     public Slider HealthSliderObject;
     public float moveSpeed;
     public float playerHealth=100;
     private Vector2 movement;
     public Transform firingPos;
+    public Transform bulletSpawnPos;
+    public Transform particleSpawnPos;
+    private GameObject particleObject;
 
     private SpriteRenderer sp;
     private Rigidbody2D rb;
@@ -70,6 +78,11 @@ public class Player : MonoBehaviour
             playerHealth -= 10;
             HealthSliderObject.value = playerHealth;
             Destroy(col.gameObject);
+            if (playerHealth <= 0)
+            {
+                Dead();
+                Destroy(gameObject);
+            }
         }
         
     }
@@ -81,10 +94,12 @@ public class Player : MonoBehaviour
             if (movement.x > 0)
             {
                 firingPos.rotation = Quaternion.Euler(0, 0,0 );
+                //particleSpawnPos.rotation = Quaternion.Euler(0, 90f, 0);
             }
             else
             {
                 firingPos.rotation = Quaternion.Euler(0, 0, 180);
+                //particleSpawnPos.rotation = Quaternion.Euler(180, 90f, 0);
             }
         }
         if (Mathf.Abs(movement.y) > Mathf.Abs(movement.x))
@@ -92,10 +107,12 @@ public class Player : MonoBehaviour
             if (movement.y > 0)
             {
                 firingPos.rotation = Quaternion.Euler(0, 0, 90f);
+                //particleSpawnPos.rotation = Quaternion.Euler(270f, 90f, 0);
             }
             else
             {
-                firingPos.rotation = Quaternion.Euler(0, 0, 270f);
+                firingPos.rotation = Quaternion.Euler(0, 0, -90f);
+                //particleSpawnPos.rotation = Quaternion.Euler(90f, 90f, 0);
             }
         }
     }
@@ -115,16 +132,33 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bullet, firingPos.position, firingPos.rotation);
+        Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
+        Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
+    }
+
+    void Dead()
+    {
+        particleObject=Instantiate(deadParticles, firingPos.position, firingPos.rotation);
+        particleObject.transform.parent = particleParentObject.transform;
+        StartCoroutine(DestroyThisAFter(particleObject, 1));
     }
 
     void Wall()
     {
-        Instantiate(wall, firingPos.position, firingPos.rotation);
+        particleObject = Instantiate(wall, firingPos.position, firingPos.rotation);
+        particleObject.transform.parent = particleParentObject.transform;
     }
 
     void FakeWall()
     {
-        Instantiate(fakeWall, firingPos.position, firingPos.rotation);
+        particleObject = Instantiate(fakeWall, firingPos.position, firingPos.rotation);
+        particleObject.transform.parent = particleParentObject.transform;
+    }
+
+    IEnumerator DestroyThisAFter(GameObject thisObject,float destroyAfter)
+    {
+        Debug.Log("destoy to 1 sec");
+        yield return new WaitForSeconds(destroyAfter);
+        Destroy(thisObject);
     }
 }
