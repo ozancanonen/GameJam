@@ -8,6 +8,8 @@ TagManager:
   - player1Bullet
   - player2Bullet
   - Destroyer
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX

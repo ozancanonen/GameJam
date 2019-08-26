@@ -41,14 +41,14 @@ public class GameManager : MonoBehaviour
         gameIsPaused = true;
     }
 
-    public void PlayerIsDeath(string playerName)
+    public void PlayerIsDeath(string playerTag)
     {
         Time.timeScale = 0f;
-        if (playerName == "Player1")
+        if (playerTag == "Player1")
         {
             Player2HasWonText.SetActive(true);
         }
-        if (playerName == "PLayer2")
+        if (playerTag == "Player2")
         {
             Player1HasWonText.SetActive(true);
         }

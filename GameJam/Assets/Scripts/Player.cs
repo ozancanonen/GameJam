@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public string playerName;
     public string enemyBulletTag;
     public string horizontalMovementInputButtons;
     public string verticalMovementInputButtons;
@@ -103,7 +102,7 @@ public class Player : MonoBehaviour
             if (playerHealth <= 0)
             {
                 Dead();
-                gm.PlayerIsDeath(playerName);
+                gm.PlayerIsDeath(gameObject.tag);
                 Destroy(gameObject);
             }
         }
