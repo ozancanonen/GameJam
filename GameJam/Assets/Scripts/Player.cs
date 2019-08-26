@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     public float playerHealth;
     private Vector2 movement;
+    public BoxCollider2D melee;
     public Transform firingPos;
     public Transform bulletSpawnPos;
     public Transform particleSpawnPos;
