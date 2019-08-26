@@ -1196,8 +1196,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.017909974, y: -0.24178457}
-  m_Size: {x: 0.8537635, y: 1.3015127}
+  m_Offset: {x: -0.025597334, y: 0.025969116}
+  m_Size: {x: 0.64390737, y: 0.7660062}
   m_Direction: 0
 --- !u!95 &973733596
 Animator:
@@ -1254,6 +1254,9 @@ MonoBehaviour:
   enemyBulletTag: player1Bullet
   horizontalMovementInputButtons: Horizontal
   verticalMovementInputButtons: Vertical
+  fireMovementInputButtons: FirePlayer2
+  Skill1MovementInputButtons: Skill1Player2
+  Skill2MovementInputButtons: Skill2Player2
   particleParentObject: {fileID: 569408915}
   bullet: {fileID: 4781262221777038729, guid: f3cf8f3e3ac8470449c3ad710f022ae6, type: 3}
   bulletParticles: {fileID: 998363604263136333, guid: c5c2ae41564936948830d18c71a176a9,
@@ -1662,6 +1665,9 @@ MonoBehaviour:
   enemyBulletTag: player2Bullet
   horizontalMovementInputButtons: Horizontal1
   verticalMovementInputButtons: Vertical1
+  fireMovementInputButtons: FirePlayer1
+  Skill1MovementInputButtons: Skill1Player1
+  Skill2MovementInputButtons: Skill2Player1
   particleParentObject: {fileID: 569408915}
   bullet: {fileID: 4781262221777038729, guid: 320325a6343079c40bb9fdbbef9d2157, type: 3}
   bulletParticles: {fileID: 998363604263136333, guid: 41ab4f6b88fe28644b20581e71134e81,
@@ -1794,8 +1800,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.017909974, y: -0.24178457}
-  m_Size: {x: 0.8537635, y: 1.3015127}
+  m_Offset: {x: -0.026241897, y: -0.009618103}
+  m_Size: {x: 0.69073546, y: 0.87034494}
   m_Direction: 0
 --- !u!114 &1712085121
 MonoBehaviour:

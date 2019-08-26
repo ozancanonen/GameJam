@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     public string enemyBulletTag;
     public string horizontalMovementInputButtons;
     public string verticalMovementInputButtons;
+    public string fireMovementInputButtons;
+    public string Skill1MovementInputButtons;
+    public string Skill2MovementInputButtons;
 
     public GameObject particleParentObject;
     public GameObject bullet;
@@ -38,15 +41,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown(fireMovementInputButtons))
         {
             Shoot();
         }
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown(Skill1MovementInputButtons))
         {
             Wall();
         }
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown(Skill2MovementInputButtons))
         {
             FakeWall();
         }
@@ -159,7 +162,6 @@ public class Player : MonoBehaviour
 
     IEnumerator DestroyThisAFter(GameObject thisObject,float destroyAfter)
     {
-        Debug.Log("destoy to 1 sec");
         yield return new WaitForSeconds(destroyAfter);
         Destroy(thisObject);
     }
