@@ -10,7 +10,11 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(SceneName);
     }
-
+    public void Replay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
+    }
     public void LoadMainMenu()
     {
         Time.timeScale = 1;
