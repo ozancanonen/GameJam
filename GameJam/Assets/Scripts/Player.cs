@@ -133,7 +133,9 @@ public class Player : MonoBehaviour
     void Shoot()
     {
         Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
-        Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
+        particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
+        particleObject.transform.parent = particleParentObject.transform;
+        StartCoroutine(DestroyThisAFter(particleObject, 1));
     }
 
     void Dead()
