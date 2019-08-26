@@ -45,7 +45,11 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown(fireMovementInputButtons))
         {
-            StartCoroutine(Shoot());
+            if (canShoot)
+            {
+                StartCoroutine(Shoot());
+
+            }
         }
 
         if (Input.GetButton(fireMovementInputButtons))
