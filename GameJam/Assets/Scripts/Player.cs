@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         sp = gameObject.GetComponent < SpriteRenderer>();
         gm = GetComponentInParent<GameManager>();
+
     }
 
     void Update()
@@ -158,13 +159,15 @@ public class Player : MonoBehaviour
         if (Input.GetButton(fireMovementInputButtons))
         {
             StartCoroutine(Immobolize(channelingTime));
-            yield return new WaitForSeconds(channelingTime);
             Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
+            yield return new WaitForSeconds(channelingTime);
+            bullet.GetComponent<Bullet>().Shoot();
             particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
             particleObject.transform.parent = particleParentObject.transform;
             StartCoroutine(DestroyThisAFter(particleObject, 1));
         }
-        canShoot = true;        
+        canShoot = true;
+        print(canShoot);
 
     }
 

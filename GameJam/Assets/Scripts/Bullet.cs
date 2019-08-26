@@ -11,7 +11,13 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right* bulletSpeed;
+    }
+    public void Shoot()
+    {
+        print("shooting");
+        rb.AddRelativeForce(new Vector2(bulletSpeed, 0));
+        rb.velocity = transform.right * bulletSpeed;
+        rb.velocity.Set(bulletSpeed, 0);
     }
 
 }
