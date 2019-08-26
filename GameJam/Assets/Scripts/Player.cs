@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
     public GameObject wall;
     public GameObject fakeWall;
 
+    private bool immobolized = false;
+    public float channelingTime;
+
+
     public Slider HealthSliderObject;
     public float moveSpeed;
     public float playerHealth;
@@ -45,35 +49,29 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown(fireMovementInputButtons))
+        if (!immobolized)
         {
-            if (canShoot)
+            if (Input.GetButtonDown(fireMovementInputButtons))
             {
-                StartCoroutine(Shoot());
-
-            }
-        }
-
-        if (Input.GetButton(fireMovementInputButtons))
-        {
-            if (canShoot)
-            {
-                StartCoroutine(Shoot());
-
+                if (canShoot)
+                {
+                    canShoot = false;
+                    StartCoroutine(Shoot());
+                }
             }
 
+            if (Input.GetButtonDown(Skill1MovementInputButtons))
+            {
+                Wall();
+            }
+            if (Input.GetButtonDown(Skill2MovementInputButtons))
+            {
+                FakeWall();
+            }
+            GetCharacterInputs();
+            Animate();
+            ProjectileRotationManager();
         }
-        if (Input.GetButtonDown(Skill1MovementInputButtons))
-        {
-            Wall();
-        }
-        if (Input.GetButtonDown(Skill2MovementInputButtons))
-        {
-            FakeWall();
-        }
-        GetCharacterInputs();
-        Animate();
-        ProjectileRotationManager();
     }
 
     //we are using FixedUpdate for all physical related stuff 
@@ -81,7 +79,8 @@ public class Player : MonoBehaviour
     {
         //we make the player move according to the player Input, we multiplied the value with time to make the movement at a constant speed 
         //not relative to fps
-        rb.MovePosition(rb.position + movement * moveSpeed*Time.fixedDeltaTime);
+        if (!immobolized)
+            rb.MovePosition(rb.position + movement * moveSpeed*Time.fixedDeltaTime);
     }
 
     //returns a value between -1 and 1 according to the pressed buttons that are defined for Horizontal in Unity(they are changeable)
@@ -154,13 +153,18 @@ public class Player : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        canShoot = false;
-        Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
-        particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
-        particleObject.transform.parent = particleParentObject.transform;
-        StartCoroutine(DestroyThisAFter(particleObject, 1));
-        yield return new WaitForSeconds(0.1f);
-        canShoot = true;
+        channelingTime = 2.0f;
+        yield return new WaitForSeconds(0.25f);
+        if (Input.GetButton(fireMovementInputButtons))
+        {
+            StartCoroutine(Immobolize(channelingTime));
+            yield return new WaitForSeconds(channelingTime);
+            Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
+            particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
+            particleObject.transform.parent = particleParentObject.transform;
+            StartCoroutine(DestroyThisAFter(particleObject, 1));
+        }
+        canShoot = true;        
 
     }
 
@@ -187,5 +191,11 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(destroyAfter);
         Destroy(thisObject);
+    }
+    IEnumerator Immobolize(float channeling)
+    {
+        immobolized = true;
+        yield return new WaitForSeconds(channeling);
+        immobolized = false; 
     }
 }
