@@ -167,8 +167,6 @@ public class Player : MonoBehaviour
             StartCoroutine(DestroyThisAFter(particleObject, 1));
         }
         canShoot = true;
-        print(canShoot);
-
     }
 
     void Dead()
