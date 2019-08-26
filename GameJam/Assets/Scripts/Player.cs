@@ -43,6 +43,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetButtonDown(fireMovementInputButtons))
+        {
+            StartCoroutine(Shoot());
+        }
+
         if (Input.GetButton(fireMovementInputButtons))
         {
             if (canShoot)
