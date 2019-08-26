@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer sp;
     private Rigidbody2D rb;
     private Animator anim;
+    private GameManager gm;
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         sp = gameObject.GetComponent < SpriteRenderer>();
+        gm = GetComponentInParent<GameManager>();
     }
 
     void Update()
