@@ -159,9 +159,8 @@ public class Player : MonoBehaviour
         if (Input.GetButton(fireMovementInputButtons))
         {
             StartCoroutine(Immobolize(channelingTime));
-            Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
             yield return new WaitForSeconds(channelingTime);
-            bullet.GetComponent<Bullet>().Shoot();
+            Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
             particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
             particleObject.transform.parent = particleParentObject.transform;
             StartCoroutine(DestroyThisAFter(particleObject, 1));
