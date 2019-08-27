@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public float lanternDurabilityMagnifier;
     private bool canShoot;
     private bool nearAlter;
-    private bool lanternOn;
+    private bool lanternOn=true;
     private bool inMeleeRange;
     private bool immobolized = false;
     public Slider HealthSliderObject;
@@ -89,9 +89,11 @@ public class Player : MonoBehaviour
         {
             lanternDurability += lanternDurabilityMagnifier * Time.deltaTime;
             lanternDurabilitySlider.value = lanternDurability;
+            if (lanternDurability >= 100)
+            {
+                Lantern();
+            }
         }
-
-
     }
 
     //we are using FixedUpdate for all physical related stuff 
@@ -121,7 +123,7 @@ public class Player : MonoBehaviour
                 meleeInteraction = col.attachedRigidbody;
             }
         }
-        if (col.tag == "Alter")
+        if (col.tag == "Altar")
         {
             nearAlter = true;
         }
@@ -135,7 +137,7 @@ public class Player : MonoBehaviour
                 inMeleeRange = false;
         }
 
-        if (col.tag == "Alter")
+        if (col.tag == "Altar")
         {
             nearAlter = false;
         }
@@ -145,6 +147,8 @@ public class Player : MonoBehaviour
         if (lanternOn)
         {
             Lantern();
+            lanternDurability = 0;
+            lanternDurabilitySlider.value = lanternDurability;
         }
         else
         {
@@ -157,8 +161,26 @@ public class Player : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        
     }
+
+    void Lantern()
+    {
+        if (lanternOn)
+        {
+                lanternObject.SetActive(false);
+                lanternOn = false;
+        }
+        else
+        {
+            if (lanternDurability >= 100)
+            {
+                lanternObject.SetActive(true);
+                lanternOn = true;
+                }
+        }
+    }
+
+
     void ProjectileRotationManager()
     {
         //
@@ -280,20 +302,6 @@ public class Player : MonoBehaviour
     {
         particleObject = Instantiate(wall, firingPos.position, firingPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
-    }
-
-    void Lantern()
-    {
-        if (lanternOn)
-        {
-            lanternObject.SetActive(false);
-            lanternOn = false;
-        }
-        else
-        {
-            lanternObject.SetActive(true);
-            lanternOn = true;
-        }
     }
 
     IEnumerator DestroyThisAFter(GameObject thisObject,float destroyAfter)
