@@ -254,14 +254,16 @@ public class Player : MonoBehaviour
         {
             case "Player1":
                 meleeInteraction.AddForce(ForceDirection() * knockback);
-                if (meleeInteraction.gameObject.tag == "Doppler")
+                if (meleeInteraction.gameObject.tag == "Construct")
                 {
+                    meleeInteraction.gameObject.GetComponent<Construct>().Move(ForceDirection());
                 }
                 break;
             case "Player2":
                 meleeInteraction.AddForce(ForceDirection() * knockback);
-                if (meleeInteraction.gameObject.tag == "Doppler")
+                if (meleeInteraction.gameObject.tag == "Construct")
                 {
+                    meleeInteraction.gameObject.GetComponent<Construct>().Move(ForceDirection());
                 }
                 break;
         }               

@@ -9,17 +9,20 @@ public class Construct : MonoBehaviour
     private bool move;
     // Start is called before the first frame update
     
-    void Move(Vector3 direction)
+    public void Move(Vector3 direction)
     {
         move = true;
-        rigidB.velocity.Set(direction.x*speed,direction.y*speed);
+       rigidB.velocity.Set(direction.x * speed, direction.y);
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
+        if (move)
         {
-            move = false;
-            rigidB.velocity.Set(0, 0);
+            if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
+            {
+                move = false;
+                rigidB.velocity.Set(0, 0);
+            }
         }
     }
 
