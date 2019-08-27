@@ -24,8 +24,11 @@ public class Player : MonoBehaviour
     public float knockback;
 
     public Slider HealthSliderObject;
+    public Slider lanternDurabilitySlider;
     public float moveSpeed;
     public float playerHealth;
+    public float lanternDurability=100;
+    public float lanternDurabilityMagnifierScale = 10;
     private Vector2 movement;
     public BoxCollider2D melee;
     public Transform firingPos;
@@ -33,6 +36,7 @@ public class Player : MonoBehaviour
     public Transform particleSpawnPos;
     private GameObject particleObject;
     private bool canShoot;
+    private bool nearAlter;
     private bool inMeleeRange;
     private Rigidbody2D meleeInteraction;
 
@@ -78,6 +82,16 @@ public class Player : MonoBehaviour
 
         }
 
+        if (nearAlter&&lanternDurability <= 100)
+        { 
+            lanternDurability += lanternDurabilityMagnifierScale * Time.timeScale;
+            lanternDurability=lanternDurabilitySlider.value;
+            if (lanternDurability >= 100)
+            {
+
+            }
+        }
+
         //if (Input.GetButtonDown(Skill1MovementInputButtons))
         //{
         //    Wall();
@@ -114,13 +128,23 @@ public class Player : MonoBehaviour
                 inMeleeRange = true;
                 meleeInteraction = col.attachedRigidbody;
             }
+        if (col.tag == "Alter")
+        {
+            nearAlter = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
         if (gameObject.tag != col.gameObject.tag)
+        {
             if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
                 inMeleeRange = false;
+        }
+        if (col.tag == "Alter")
+        {
+            nearAlter = false;
+        }
     }
     public void TakeDamage(int damage)
     {
