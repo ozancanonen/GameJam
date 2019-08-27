@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     private bool immobolized = false;
     public float channelingTime;
-    private float waitTime;
+
 
     public Slider HealthSliderObject;
     public float moveSpeed;
@@ -59,7 +59,6 @@ public class Player : MonoBehaviour
             {
                 if (canShoot)
                 {
-                    waitTime = Time.fixedTime + 0.5f;
                     canShoot = false;
                     StartCoroutine(Shoot());
                 }
@@ -74,9 +73,9 @@ public class Player : MonoBehaviour
                 FakeWall();
             }
             GetCharacterInputs();
+            Animate();
             ProjectileRotationManager();
         }
-        Animate();
     }
 
     //we are using FixedUpdate for all physical related stuff 
@@ -169,41 +168,20 @@ public class Player : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        bool delay = true;
-        while (delay)
-        {
-            int i = 0;
-            if (Time.fixedTime < waitTime)
-            {
-                print(Time.fixedTime);
-                print(waitTime);
-                if (Input.GetButtonUp(fireMovementInputButtons))
-                {
-                    if (inMeleeRange)
-                        meleeInteraction.AddRelativeForce(transform.right * 5000);
-                    break;
-                }
-            }
-            else
-            {
-                delay = false;
-            }
-            i++;
-            if (i > 4)
-            {
-                delay = false;
-            }
-        }
-        channelingTime = 1.0f;
+        channelingTime = 2.0f;
+        if (inMeleeRange)
+            meleeInteraction.AddRelativeForce(transform.right * 5000);
+        yield return new WaitForSeconds(0.25f);
+        immobolized = true;
         while(Input.GetButton(fireMovementInputButtons))
         {
-            StartCoroutine(Immobolize(channelingTime));
             yield return new WaitForSeconds(channelingTime);
             Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
             particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
             particleObject.transform.parent = particleParentObject.transform;
             StartCoroutine(DestroyThisAFter(particleObject, 1));
         }
+        immobolized = false;
         canShoot = true;
     }
 
@@ -230,11 +208,5 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(destroyAfter);
         Destroy(thisObject);
-    }
-    IEnumerator Immobolize(float channeling)
-    {
-        immobolized = true;
-        yield return new WaitForSeconds(channeling);
-        immobolized = false;
     }
 }
