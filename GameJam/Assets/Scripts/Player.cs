@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
             nearAlter = false;
         }
     }
-    public void TakeDamage(int damage,bool isThisBullet)
+    public void TakeDamage(int damage)
     {
         if (lanternOn)
         {
