@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     private Animator anim;
     private GameManager gm;
 
+    private float waitTime;
     void Start()
     {
         canShoot = true;
@@ -63,6 +64,7 @@ public class Player : MonoBehaviour
             {
                 if (canShoot)
                 {
+                    waitTime = Time.fixedTime + 0.25f;
                     canShoot = false;
                     StartCoroutine(Shoot());
                 }
@@ -206,8 +208,17 @@ public class Player : MonoBehaviour
         channelingTime = 2.0f;
         if (inMeleeRange)
             meleeInteraction.AddForce(ForceDirection() * knockback);
-        yield return new WaitForSeconds(0.25f);
-        
+        //yield return new WaitForSeconds(0.25f);
+        while(waitTime > Time.fixedTime)
+        {
+            if(!Input.GetButton(fireMovementInputButtons))
+            {
+                if (inMeleeRange)
+                    Interaction();
+            }
+            yield return null;
+
+        }
         while(Input.GetButton(fireMovementInputButtons))
         {
             StartCoroutine(Immobolize(channelingTime));
@@ -219,6 +230,26 @@ public class Player : MonoBehaviour
         }
         canShoot = true;
     }
+    void Interaction ()
+    {
+        switch (gameObject.tag)
+        {
+            case "Player1":
+                meleeInteraction.AddForce(ForceDirection() * knockback);
+                if (meleeInteraction.gameObject.tag == "Doppler")
+                {
+                }
+                break;
+            case "Player2":
+                meleeInteraction.AddForce(ForceDirection() * knockback);
+                if (meleeInteraction.gameObject.tag == "Doppler")
+                {
+                }
+                break;
+        }               
+
+    }
+     //ForceDirection returns the Vecotor3 
     Vector3 ForceDirection()
     {
         float rot = firingPos.rotation.eulerAngles.z;
