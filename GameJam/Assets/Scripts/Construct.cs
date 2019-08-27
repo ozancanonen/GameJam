@@ -6,18 +6,19 @@ public class Construct : MonoBehaviour
 {
     public Rigidbody2D rigidB;
     public float speed;
-    private bool move;
+    private bool move = true;
     private Vector3 direction;
     public GameObject collisionDirection;
+    private bool obsticle;
     // Start is called before the first frame update
     
     public bool Move(Vector3 d, Quaternion rotation)
     {
-        print("I am moving");
+        
         direction = d;
         collisionDirection.transform.rotation = rotation;
-        move = true;
-        StartCoroutine(Travel());
+        if(move)
+            StartCoroutine(Travel());
         return false;
     }
     IEnumerator Travel()
@@ -30,11 +31,19 @@ public class Construct : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-            if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Destroyer")
-            {
-                print("I have stopped");
-                move = false;
-            }
+        if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Destroyer")
+        {
+            print(move);
+            move = false;
+        }
     }
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Destroyer")
+        {
+            print(move);
+            move = true;
+        }
 
+    }
 }

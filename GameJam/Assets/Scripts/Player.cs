@@ -17,8 +17,7 @@ public class Player : MonoBehaviour
     public GameObject lanternObject;
     public GameObject bulletParticles;
     public GameObject deadParticles;
-    public GameObject wall;
-    public GameObject fakeWall;
+    public GameObject Construct;
 
     public float channelingTime;
     public float knockback;
@@ -74,7 +73,7 @@ public class Player : MonoBehaviour
 
             if (Input.GetButtonDown(Skill1MovementInputButtons))
             {
-                Wall();
+                BuildConstruct();
             }
             if (Input.GetButtonDown(Skill2MovementInputButtons))
             {
@@ -234,7 +233,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        channelingTime = 2.0f;
+        channelingTime = 2;
         while(waitTime > Time.fixedTime)
         {
             if(!Input.GetButton(fireMovementInputButtons))
@@ -331,10 +330,10 @@ public class Player : MonoBehaviour
         StartCoroutine(DestroyThisAFter(particleObject, 1));
     }
 
-    void Wall()
+    void BuildConstruct()
     {
-        particleObject = Instantiate(wall, firingPos.position, firingPos.rotation);
-        particleObject.transform.parent = particleParentObject.transform;
+        StartCoroutine(Immobolize(2));
+        particleObject = Instantiate(Construct, bulletSpawnPos.position, Construct.transform.rotation);
     }
 
     IEnumerator DestroyThisAFter(GameObject thisObject,float destroyAfter)
