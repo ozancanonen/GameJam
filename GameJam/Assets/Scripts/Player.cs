@@ -14,30 +14,27 @@ public class Player : MonoBehaviour
 
     public GameObject particleParentObject;
     public GameObject bullet;
+    public GameObject lanternObject;
     public GameObject bulletParticles;
     public GameObject deadParticles;
     public GameObject wall;
     public GameObject fakeWall;
 
-    private bool immobolized = false;
     public float channelingTime;
     public float knockback;
-
-    public Slider HealthSliderObject;
-    public Slider lanternDurabilitySlider;
     public float moveSpeed;
     public float playerHealth;
-    public float lanternDurability=100;
-    public float lanternDurabilityMagnifierScale = 10;
+    private bool canShoot;
+    private bool lanternOn;
+    private bool inMeleeRange;
+    private bool immobolized = false;
+    public Slider HealthSliderObject;
     private Vector2 movement;
     public BoxCollider2D melee;
     public Transform firingPos;
     public Transform bulletSpawnPos;
     public Transform particleSpawnPos;
     private GameObject particleObject;
-    private bool canShoot;
-    private bool nearAlter;
-    private bool inMeleeRange;
     private Rigidbody2D meleeInteraction;
 
     private SpriteRenderer sp;
@@ -76,22 +73,12 @@ public class Player : MonoBehaviour
             }
             if (Input.GetButtonDown(Skill2MovementInputButtons))
             {
-                FakeWall();
+                Lantern();
             }
             GetCharacterInputs();
             Animate();
             ProjectileRotationManager();
 
-        }
-
-        if (nearAlter&&lanternDurability <= 100)
-        { 
-            lanternDurability += lanternDurabilityMagnifierScale * Time.timeScale;
-            lanternDurability=lanternDurabilitySlider.value;
-            if (lanternDurability >= 100)
-            {
-
-            }
         }
 
         //if (Input.GetButtonDown(Skill1MovementInputButtons))
@@ -130,34 +117,32 @@ public class Player : MonoBehaviour
                 inMeleeRange = true;
                 meleeInteraction = col.attachedRigidbody;
             }
-        if (col.tag == "Alter")
-        {
-            nearAlter = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
         if (gameObject.tag != col.gameObject.tag)
-        {
             if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
                 inMeleeRange = false;
-        }
-        if (col.tag == "Alter")
-        {
-            nearAlter = false;
-        }
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage,bool isThisBullet)
     {
-        playerHealth -= damage;
-        HealthSliderObject.value = playerHealth;
-        if (playerHealth <= 0)
+        if (lanternOn)
         {
-            Dead();
-            gm.PlayerIsDeath(gameObject.tag);
-            Destroy(gameObject);
+            Lantern();
         }
+        else
+        {
+            playerHealth -= damage;
+            HealthSliderObject.value = playerHealth;
+            if (playerHealth <= 0)
+            {
+                Dead();
+                gm.PlayerIsDeath(gameObject.tag);
+                Destroy(gameObject);
+            }
+        }
+        
     }
     void ProjectileRotationManager()
     {
@@ -285,10 +270,18 @@ public class Player : MonoBehaviour
         particleObject.transform.parent = particleParentObject.transform;
     }
 
-    void FakeWall()
+    void Lantern()
     {
-        particleObject = Instantiate(fakeWall, firingPos.position, firingPos.rotation);
-        particleObject.transform.parent = particleParentObject.transform;
+        if (lanternOn)
+        {
+            lanternObject.SetActive(false);
+            lanternOn = false;
+        }
+        else
+        {
+            lanternObject.SetActive(true);
+            lanternOn = true;
+        }
     }
 
     IEnumerator DestroyThisAFter(GameObject thisObject,float destroyAfter)
