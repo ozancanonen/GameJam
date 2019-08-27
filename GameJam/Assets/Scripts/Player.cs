@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
             if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
                 inMeleeRange = false;
     }
-    public void TakeDamage(int damage,bool isThisBullet)
+    public void TakeDamage(int damage)
     {
         if (lanternOn)
         {
