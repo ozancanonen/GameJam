@@ -93,13 +93,13 @@ public class Player : MonoBehaviour
         movement.y = Input.GetAxisRaw(verticalMovementInputButtons);
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    /*private void OnTriggerEnter2D(Collider2D col)
     {
 
         if (col.gameObject.tag == enemyBulletTag)
         {
-            playerHealth -= 10;
-            HealthSliderObject.value = playerHealth;
+            
+            
             Destroy(col.gameObject);
             if (playerHealth <= 0)
             {
@@ -109,6 +109,17 @@ public class Player : MonoBehaviour
             }
         }
         
+    }*/
+    public void TakeDamage(int damage)
+    {
+        playerHealth -= damage;
+        HealthSliderObject.value = playerHealth;
+        if (playerHealth <= 0)
+        {
+            Dead();
+            gm.PlayerIsDeath(gameObject.tag);
+            Destroy(gameObject);
+        }
     }
     void ProjectileRotationManager()
     {
