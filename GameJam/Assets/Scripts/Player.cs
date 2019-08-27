@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     public float knockback;
     public float moveSpeed;
     public float playerHealth;
-    public float lanternDurability;
     public float lanternDurabilityMagnifier;
     private bool canShoot;
     private bool nearAlter;
@@ -46,6 +45,7 @@ public class Player : MonoBehaviour
     private Animator anim;
     private GameManager gm;
 
+    private float lanternDurability = 100;
     private float waitTime;
     void Start()
     {
