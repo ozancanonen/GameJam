@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class AudioClipLister : MonoBehaviour
 {
-
+    [Header("Audio source must be from the camera!")]
     public AudioSource AudioSource;
-    public AudioClip[] AudioClips;
+
+    [Header("Number of audio clips.")]
     int ClipsLoaded = 0;
+    public AudioClip[] AudioClips;
+
 
     // Start is called before the first frame update
     void Start()
