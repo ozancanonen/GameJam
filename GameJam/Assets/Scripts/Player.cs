@@ -176,7 +176,7 @@ public class Player : MonoBehaviour
             {
                 lanternObject.SetActive(true);
                 lanternOn = true;
-                }
+            }
         }
     }
 

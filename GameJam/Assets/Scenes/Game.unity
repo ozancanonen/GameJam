@@ -1212,6 +1212,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lantern
       objectReference: {fileID: 0}
+    - target: {fileID: 3961161966537544429, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3798,7 +3803,7 @@ MonoBehaviour:
   knockback: 5000
   moveSpeed: 10
   playerHealth: 100
-  lanternDurabilityMagnifier: 10
+  lanternDurabilityMagnifier: 20
   HealthSliderObject: {fileID: 722584072}
   lanternDurabilitySlider: {fileID: 776727064}
   melee: {fileID: 774629506}
@@ -5450,7 +5455,7 @@ PrefabInstance:
     - target: {fileID: 4089640432968241953, guid: 8451a52e2e7b72947b3ccb36df82b303,
         type: 3}
       propertyPath: lanternDurabilityMagnifier
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4089640432968241959, guid: 8451a52e2e7b72947b3ccb36df82b303,
         type: 3}
