@@ -47,3 +47,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LightLayer1
+    uniqueID: 2388166661
+    locked: 0
+  - name: LightLayer2
+    uniqueID: 2185697851
+    locked: 0
+  - name: LightLayer3
+    uniqueID: 11517043
+    locked: 0
