@@ -10,6 +10,7 @@ TagManager:
   - Destroyer
   - Player1
   - Player2
+  - Melee
   layers:
   - Default
   - TransparentFX

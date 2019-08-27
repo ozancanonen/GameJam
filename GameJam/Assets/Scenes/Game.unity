@@ -471,7 +471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247738559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.38, y: 3.8, z: 0}
+  m_LocalPosition: {x: 7.85, y: 0.94, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 1}
   m_Children:
   - {fileID: 1775963349}
@@ -1492,7 +1492,7 @@ GameObject:
   - component: {fileID: 774629506}
   m_Layer: 0
   m_Name: FiringPoint
-  m_TagString: Untagged
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1523,7 +1523,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.8306911, y: -0.02058652}
@@ -4197,12 +4197,12 @@ PrefabInstance:
     - target: {fileID: 8956186402967876866, guid: 320325a6343079c40bb9fdbbef9d2157,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.29
+      value: -7.404
       objectReference: {fileID: 0}
     - target: {fileID: 8956186402967876866, guid: 320325a6343079c40bb9fdbbef9d2157,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.242624
+      value: 0.384
       objectReference: {fileID: 0}
     - target: {fileID: 8956186402967876866, guid: 320325a6343079c40bb9fdbbef9d2157,
         type: 3}
@@ -4248,41 +4248,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392064248611213581, guid: 320325a6343079c40bb9fdbbef9d2157,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392064248611213581, guid: 320325a6343079c40bb9fdbbef9d2157,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.08852029
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392064248611213581, guid: 320325a6343079c40bb9fdbbef9d2157,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4735034281015419988, guid: 320325a6343079c40bb9fdbbef9d2157,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4735034281015419988, guid: 320325a6343079c40bb9fdbbef9d2157,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.16855001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4735034281015419988, guid: 320325a6343079c40bb9fdbbef9d2157,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4735034281015419988, guid: 320325a6343079c40bb9fdbbef9d2157,
-        type: 3}
-      propertyPath: m_AlphaBlendOnOverlap
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 320325a6343079c40bb9fdbbef9d2157, type: 3}
