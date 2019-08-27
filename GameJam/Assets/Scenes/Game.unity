@@ -1101,6 +1101,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600194558}
   m_CullTransparentMesh: 0
+--- !u!1001 &609640434
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 774629505}
+    m_Modifications:
+    - target: {fileID: 3961161966537544429, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_Name
+      value: Lantern
+      objectReference: {fileID: 0}
+    - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.32999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.030000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 641885466099223142, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e11af7ccb289ea48a6bf53402a48a1f, type: 3}
 --- !u!1 &651638664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,6 +1915,7 @@ MonoBehaviour:
   Skill2MovementInputButtons: Skill2Player2
   particleParentObject: {fileID: 569408915}
   bullet: {fileID: 4781262221777038729, guid: f3cf8f3e3ac8470449c3ad710f022ae6, type: 3}
+  lanternObject: {fileID: 0}
   bulletParticles: {fileID: 998363604263136333, guid: c5c2ae41564936948830d18c71a176a9,
     type: 3}
   deadParticles: {fileID: 8113384502658559447, guid: b15daec946f4aad4384824fc2be03231,
@@ -1855,9 +1925,9 @@ MonoBehaviour:
     type: 3}
   channelingTime: 0
   knockback: 0
-  HealthSliderObject: {fileID: 547710839}
   moveSpeed: 10
   playerHealth: 100
+  HealthSliderObject: {fileID: 547710839}
   melee: {fileID: 0}
   firingPos: {fileID: 2072770408}
   bulletSpawnPos: {fileID: 848043166}
@@ -2951,6 +3021,7 @@ MonoBehaviour:
   Skill2MovementInputButtons: Skill2Player1
   particleParentObject: {fileID: 569408915}
   bullet: {fileID: 1870078400}
+  lanternObject: {fileID: 0}
   bulletParticles: {fileID: 998363604263136333, guid: 41ab4f6b88fe28644b20581e71134e81,
     type: 3}
   deadParticles: {fileID: 8113384502658559447, guid: c15d438490c8ed9419f27dc7610fbec9,
@@ -2960,9 +3031,9 @@ MonoBehaviour:
     type: 3}
   channelingTime: 0
   knockback: 5000
-  HealthSliderObject: {fileID: 722584072}
   moveSpeed: 10
   playerHealth: 100
+  HealthSliderObject: {fileID: 722584072}
   melee: {fileID: 774629506}
   firingPos: {fileID: 774629505}
   bulletSpawnPos: {fileID: 464722613}
