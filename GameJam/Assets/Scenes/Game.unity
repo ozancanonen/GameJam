@@ -1927,7 +1927,10 @@ MonoBehaviour:
   knockback: 0
   moveSpeed: 10
   playerHealth: 100
+  lanternDurability: 0
+  lanternDurabilityMagnifier: 0
   HealthSliderObject: {fileID: 547710839}
+  lanternDurabilitySlider: {fileID: 0}
   melee: {fileID: 0}
   firingPos: {fileID: 2072770408}
   bulletSpawnPos: {fileID: 848043166}
@@ -3033,7 +3036,10 @@ MonoBehaviour:
   knockback: 5000
   moveSpeed: 10
   playerHealth: 100
+  lanternDurability: 0
+  lanternDurabilityMagnifier: 0
   HealthSliderObject: {fileID: 722584072}
+  lanternDurabilitySlider: {fileID: 0}
   melee: {fileID: 774629506}
   firingPos: {fileID: 774629505}
   bulletSpawnPos: {fileID: 464722613}
@@ -4832,7 +4838,7 @@ GameObject:
   - component: {fileID: 673217710}
   m_Layer: 0
   m_Name: Altar
-  m_TagString: Untagged
+  m_TagString: Altar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

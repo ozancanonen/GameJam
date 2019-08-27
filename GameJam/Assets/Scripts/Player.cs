@@ -24,11 +24,15 @@ public class Player : MonoBehaviour
     public float knockback;
     public float moveSpeed;
     public float playerHealth;
+    public float lanternDurability;
+    public float lanternDurabilityMagnifier;
     private bool canShoot;
+    private bool nearAlter;
     private bool lanternOn;
     private bool inMeleeRange;
     private bool immobolized = false;
     public Slider HealthSliderObject;
+    public Slider lanternDurabilitySlider;
     private Vector2 movement;
     public BoxCollider2D melee;
     public Transform firingPos;
@@ -81,15 +85,13 @@ public class Player : MonoBehaviour
 
         }
 
-        //if (Input.GetButtonDown(Skill1MovementInputButtons))
-        //{
-        //    Wall();
-        //}
+        if (nearAlter && lanternDurability <= 100)
+        {
+            lanternDurability += lanternDurabilityMagnifier * Time.deltaTime;
+            lanternDurabilitySlider.value = lanternDurability;
+        }
 
-        //if (Input.GetButtonDown(Skill2MovementInputButtons))
-        //{
-        //    FakeWall();
-        //}
+
     }
 
     //we are using FixedUpdate for all physical related stuff 
@@ -112,18 +114,31 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (gameObject.tag != col.gameObject.tag)
+        {
             if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
             {
                 inMeleeRange = true;
                 meleeInteraction = col.attachedRigidbody;
             }
+        }
+        if (col.tag == "Alter")
+        {
+            nearAlter = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
         if (gameObject.tag != col.gameObject.tag)
+        {
             if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
                 inMeleeRange = false;
+        }
+
+        if (col.tag == "Alter")
+        {
+            nearAlter = false;
+        }
     }
     public void TakeDamage(int damage)
     {
@@ -191,9 +206,6 @@ public class Player : MonoBehaviour
     IEnumerator Shoot()
     {
         channelingTime = 2.0f;
-        if (inMeleeRange)
-            meleeInteraction.AddForce(ForceDirection() * knockback);
-        //yield return new WaitForSeconds(0.25f);
         while(waitTime > Time.fixedTime)
         {
             if(!Input.GetButton(fireMovementInputButtons))
