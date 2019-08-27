@@ -11,13 +11,14 @@ public class Construct : MonoBehaviour
     public GameObject collisionDirection;
     // Start is called before the first frame update
     
-    public void Move(Vector3 d, Quaternion rotation)
+    public bool Move(Vector3 d, Quaternion rotation)
     {
         print("I am moving");
         direction = d;
         collisionDirection.transform.rotation = rotation;
         move = true;
         StartCoroutine(Travel());
+        return false;
     }
     IEnumerator Travel()
     {

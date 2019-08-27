@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
 
     private float lanternDurability = 100;
     private float waitTime;
+    private bool doingInteraction;
     void Start()
     {
         canShoot = true;
@@ -238,8 +239,11 @@ public class Player : MonoBehaviour
         {
             if(!Input.GetButton(fireMovementInputButtons))
             {
-                if (inMeleeRange)
-                    Interaction();
+                if (inMeleeRange && !doingInteraction)
+                {
+                    doingInteraction = true;
+                        Interaction();
+                }
             }
             yield return null;
 
@@ -257,31 +261,45 @@ public class Player : MonoBehaviour
     }
     void Interaction ()
     {
-        switch (gameObject.tag)
         {
-            case "Player1":
-                meleeInteraction.AddForce(ForceDirection() * knockback);
-                if (meleeInteraction.gameObject.tag == "Construct")
-                {
-                    print("Hitting the Construct");
-                    moveConstruct();
-                }
-                break;
-            case "Player2":
-                meleeInteraction.AddForce(ForceDirection() * knockback);
-                if (meleeInteraction.gameObject.tag == "Construct")
-                {
-                    moveConstruct();  
-                }
-                break;
-        }               
+            doingInteraction = true;
+            switch (gameObject.tag)
+            {
+                case "Player1":
+                    if (meleeInteraction.gameObject.tag == "Player2")
+                    {
+                        meleeInteraction.AddForce(ForceDirection() * knockback);
+                        meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1);
+                        doingInteraction = false;
+                    }
+                    if (meleeInteraction.gameObject.tag == "Construct")
+                    {
+                        print("Hitting the Construct");
+                        moveConstruct();
+                    }
+                    break;
+                case "Player2":
+                    if (meleeInteraction.gameObject.tag == "Player1")
+                    {
+                        meleeInteraction.AddForce(ForceDirection() * knockback);
+                        meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1);
+                        doingInteraction = false;
+                    }
+                    meleeInteraction.AddForce(ForceDirection() * knockback);
+                    if (meleeInteraction.gameObject.tag == "Construct")
+                    {
+                        moveConstruct();
+                    }
+                    break;
+            }
+        }
 
     }
 
     private void moveConstruct()
     {
         Construct c = meleeInteraction.gameObject.GetComponent<Construct>();
-        c.Move(ForceDirection(), firingPos.rotation);
+        doingInteraction = c.Move(ForceDirection(), firingPos.rotation);
     }
     //ForceDirection returns the Vecotor3 
     Vector3 ForceDirection()
