@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     public Transform particleSpawnPos;
     private GameObject particleObject;
     private bool canShoot;
+    private bool inMeleeRange;
+    private Rigidbody2D meleeInteraction;
 
     private SpriteRenderer sp;
     private Rigidbody2D rb;
@@ -93,23 +95,22 @@ public class Player : MonoBehaviour
         movement.y = Input.GetAxisRaw(verticalMovementInputButtons);
     }
 
-    /*private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-
-        if (col.gameObject.tag == enemyBulletTag)
-        {
-            
-            
-            Destroy(col.gameObject);
-            if (playerHealth <= 0)
+        if (gameObject.tag != col.gameObject.tag)
+            if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
             {
-                Dead();
-                gm.PlayerIsDeath(gameObject.tag);
-                Destroy(gameObject);
+                inMeleeRange = true;
+                meleeInteraction = col.attachedRigidbody;
             }
-        }
-        
-    }*/
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (gameObject.tag != col.gameObject.tag)
+            if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
+                inMeleeRange = false;
+    }
     public void TakeDamage(int damage)
     {
         playerHealth -= damage;
@@ -168,6 +169,8 @@ public class Player : MonoBehaviour
     IEnumerator Shoot()
     {
         channelingTime = 2.0f;
+        if (inMeleeRange)
+            meleeInteraction.AddRelativeForce(transform.right * 5000);
         yield return new WaitForSeconds(0.25f);
         immobolized = true;
         while(Input.GetButton(fireMovementInputButtons))
