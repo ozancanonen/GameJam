@@ -181,7 +181,7 @@ public class Player : MonoBehaviour
     {
         channelingTime = 2.0f;
         if (inMeleeRange)
-            meleeInteraction.AddRelativeForce(transform.right * 5000);
+            meleeInteraction.AddForce(transform.right * 5000);
         yield return new WaitForSeconds(0.25f);
         
         while(Input.GetButton(fireMovementInputButtons))
