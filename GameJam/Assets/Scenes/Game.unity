@@ -1825,8 +1825,11 @@ MonoBehaviour:
   channelingTime: 0
   knockback: 0
   HealthSliderObject: {fileID: 547710839}
+  lanternDurabilitySlider: {fileID: 0}
   moveSpeed: 10
   playerHealth: 100
+  lanternDurability: 100
+  lanternDurabilityMagnifierScale: 10
   melee: {fileID: 0}
   firingPos: {fileID: 2072770408}
   bulletSpawnPos: {fileID: 848043166}
@@ -2930,8 +2933,11 @@ MonoBehaviour:
   channelingTime: 0
   knockback: 5000
   HealthSliderObject: {fileID: 722584072}
+  lanternDurabilitySlider: {fileID: 0}
   moveSpeed: 10
   playerHealth: 100
+  lanternDurability: 100
+  lanternDurabilityMagnifierScale: 10
   melee: {fileID: 774629506}
   firingPos: {fileID: 774629505}
   bulletSpawnPos: {fileID: 464722613}
@@ -2995,7 +3001,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712085114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.45, y: 0.75, z: -1}
+  m_LocalPosition: {x: -9.27, y: 2.97, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 774629505}
@@ -4579,12 +4585,12 @@ PrefabInstance:
     - target: {fileID: 4089640432968241959, guid: 8451a52e2e7b72947b3ccb36df82b303,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.45
+      value: -9.27
       objectReference: {fileID: 0}
     - target: {fileID: 4089640432968241959, guid: 8451a52e2e7b72947b3ccb36df82b303,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.75
+      value: 2.97
       objectReference: {fileID: 0}
     - target: {fileID: 4089640432968241959, guid: 8451a52e2e7b72947b3ccb36df82b303,
         type: 3}
