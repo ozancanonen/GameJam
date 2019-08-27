@@ -95,6 +95,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        print(col.gameObject.name);
         if (col.gameObject.tag == enemyBulletTag)
         {
             playerHealth -= 10;
