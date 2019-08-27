@@ -471,7 +471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247738559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.4, y: 3.8, z: 0}
+  m_LocalPosition: {x: 8.38, y: 3.8, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 1}
   m_Children:
   - {fileID: 1775963349}
@@ -3146,7 +3146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775963348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0109, y: 0, z: 0}
+  m_LocalPosition: {x: -0.004, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 247738562}
@@ -3605,7 +3605,7 @@ MonoBehaviour:
     type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
+  m_AlphaBlendOnOverlap: 1
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -3678,7 +3678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890080623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.37, y: 1.93, z: 0}
+  m_LocalPosition: {x: -1.57, y: 3.42, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 1}
   m_Children:
   - {fileID: 1642115046}
@@ -4248,6 +4248,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392064248611213581, guid: 320325a6343079c40bb9fdbbef9d2157,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392064248611213581, guid: 320325a6343079c40bb9fdbbef9d2157,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.08852029
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392064248611213581, guid: 320325a6343079c40bb9fdbbef9d2157,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735034281015419988, guid: 320325a6343079c40bb9fdbbef9d2157,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735034281015419988, guid: 320325a6343079c40bb9fdbbef9d2157,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.16855001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735034281015419988, guid: 320325a6343079c40bb9fdbbef9d2157,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735034281015419988, guid: 320325a6343079c40bb9fdbbef9d2157,
+        type: 3}
+      propertyPath: m_AlphaBlendOnOverlap
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 320325a6343079c40bb9fdbbef9d2157, type: 3}
