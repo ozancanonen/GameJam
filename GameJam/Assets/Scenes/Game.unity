@@ -166,12 +166,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 609640434}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &124844219 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 7970693285408724138, guid: 4f166a47ffe66d14d84ff8c2a713426b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1837127416}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &144581346
 GameObject:
   m_ObjectHideFlags: 0
@@ -4491,31 +4485,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7970693285408724138, guid: 4f166a47ffe66d14d84ff8c2a713426b,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7970693285408724138, guid: 4f166a47ffe66d14d84ff8c2a713426b,
-        type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7970693285408724138, guid: 4f166a47ffe66d14d84ff8c2a713426b,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7328843100689889566, guid: 4f166a47ffe66d14d84ff8c2a713426b,
-        type: 3}
-      propertyPath: rigidB
-      value: 
-      objectReference: {fileID: 124844219}
-    - target: {fileID: 7328843100689889566, guid: 4f166a47ffe66d14d84ff8c2a713426b,
-        type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f166a47ffe66d14d84ff8c2a713426b, type: 3}
 --- !u!1 &1863205632
@@ -5537,7 +5506,7 @@ GameObject:
   - component: {fileID: 2142783522}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

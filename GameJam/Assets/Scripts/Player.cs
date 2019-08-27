@@ -126,7 +126,8 @@ public class Player : MonoBehaviour
             {
                 inMeleeRange = true;
                 meleeInteraction = col.attachedRigidbody;
-                meleeInteraction.bodyType = RigidbodyType2D.Static;
+
+                //meleeInteraction.bodyType = RigidbodyType2D.Static;
             }       
         }
         if (col.tag == "Altar")
@@ -263,20 +264,30 @@ public class Player : MonoBehaviour
                 if (meleeInteraction.gameObject.tag == "Construct")
                 {
                     print("Hitting the Construct");
-                    meleeInteraction.gameObject.GetComponent<Construct>().Move(ForceDirection());
+                    moveConstruct();
+                    //StartCoroutine(meleeInteraction.gameObject.GetComponent<Construct>().Move(ForceDirection(), firingPos.rotation));
+                    
                 }
                 break;
             case "Player2":
                 meleeInteraction.AddForce(ForceDirection() * knockback);
                 if (meleeInteraction.gameObject.tag == "Construct")
                 {
-                    meleeInteraction.gameObject.GetComponent<Construct>().Move(ForceDirection());
+                    moveConstruct();
+                    //StartCoroutine(meleeInteraction.gameObject.GetComponent<Construct>().Move(ForceDirection(), firingPos.rotation));
                 }
                 break;
         }               
 
     }
-     //ForceDirection returns the Vecotor3 
+
+    private void moveConstruct()
+    {
+        Construct c = meleeInteraction.gameObject.GetComponent<Construct>();
+        c.Move(ForceDirection(), firingPos.rotation);
+     
+    }
+    //ForceDirection returns the Vecotor3 
     Vector3 ForceDirection()
     {
         float rot = firingPos.rotation.eulerAngles.z;

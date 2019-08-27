@@ -7,24 +7,34 @@ public class Construct : MonoBehaviour
     public Rigidbody2D rigidB;
     public float speed;
     private bool move;
+    private Vector3 direction;
+    public GameObject collisionDirection;
     // Start is called before the first frame update
     
-    public void Move(Vector3 direction)
+    public void Move(Vector3 d, Quaternion rotation)
     {
-        print(rigidB.bodyType);
-        rigidB.bodyType = RigidbodyType2D.Dynamic;
-        rigidB.AddForce(new Vector2(direction.x,direction.y)*speed);
+        print("I am moving");
+        direction = d;
+        collisionDirection.transform.rotation = rotation;
+        move = true;
+        collisionDirection.transform.rotation = rotation;
+        StartCoroutine(Travel());
+    }
+    IEnumerator Travel()
+    {
+        while (move)
+        {
+            gameObject.transform.position = new Vector3((transform.position.x + (direction.x * speed/100)), (transform.position.y + (direction.y * speed/10)), transform.position.z);
+            yield return null;
+        }
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (move)
-        {
-            if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
+            if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Destroyer")
             {
+            print("I have stopped");
                 move = false;
-                rigidB.velocity.Set(0, 0);
             }
-        }
     }
 
 }

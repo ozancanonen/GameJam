@@ -13,6 +13,7 @@ TagManager:
   - Melee
   - Altar
   - Construct
+  - Wall
   layers:
   - Default
   - TransparentFX
