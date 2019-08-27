@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if (nearAlter && lanternDurability <= 100)
+        if (nearAlter && lanternDurability < 100)
         {
             lanternDurability += lanternDurabilityMagnifier * Time.deltaTime;
             lanternDurabilitySlider.value = lanternDurability;
@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
             if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
                 inMeleeRange = false;
         }
-
+        Debug.Log("Collider exit");
         if (col.tag == "Altar")
         {
             nearAlter = false;
