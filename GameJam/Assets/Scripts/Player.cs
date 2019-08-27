@@ -68,7 +68,6 @@ public class Player : MonoBehaviour
             {
                 Wall();
             }
-<<<<<<< Updated upstream
             if (Input.GetButtonDown(Skill2MovementInputButtons))
             {
                 FakeWall();
@@ -76,19 +75,18 @@ public class Player : MonoBehaviour
             GetCharacterInputs();
             Animate();
             ProjectileRotationManager();
-=======
+
         }
 
-        if (Input.GetButtonDown(Skill1MovementInputButtons))
-        {
-            Wall();
-        }
+        //if (Input.GetButtonDown(Skill1MovementInputButtons))
+        //{
+        //    Wall();
+        //}
 
-        if (Input.GetButtonDown(Skill2MovementInputButtons))
-        {
-            FakeWall();
->>>>>>> Stashed changes
-        }
+        //if (Input.GetButtonDown(Skill2MovementInputButtons))
+        //{
+        //    FakeWall();
+        //}
     }
 
     //we are using FixedUpdate for all physical related stuff 
