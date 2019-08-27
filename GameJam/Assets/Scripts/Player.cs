@@ -117,11 +117,17 @@ public class Player : MonoBehaviour
     {
         if (gameObject.tag != col.gameObject.tag)
         {
-            if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
+            if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" )
             {
                 inMeleeRange = true;
                 meleeInteraction = col.attachedRigidbody;
             }
+            if (col.gameObject.tag == "Construct")
+            {
+                inMeleeRange = true;
+                meleeInteraction = col.attachedRigidbody;
+                meleeInteraction.bodyType = RigidbodyType2D.Static;
+            }       
         }
         if (col.tag == "Altar")
         {
@@ -133,7 +139,7 @@ public class Player : MonoBehaviour
     {
         if (gameObject.tag != col.gameObject.tag)
         {
-            if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
+            if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Construct")
                 inMeleeRange = false;
         }
         if (col.tag == "Altar")
@@ -256,6 +262,7 @@ public class Player : MonoBehaviour
                 meleeInteraction.AddForce(ForceDirection() * knockback);
                 if (meleeInteraction.gameObject.tag == "Construct")
                 {
+                    print("Hitting the Construct");
                     meleeInteraction.gameObject.GetComponent<Construct>().Move(ForceDirection());
                 }
                 break;

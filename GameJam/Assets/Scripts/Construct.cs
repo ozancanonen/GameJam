@@ -11,8 +11,9 @@ public class Construct : MonoBehaviour
     
     public void Move(Vector3 direction)
     {
-        move = true;
-       rigidB.velocity.Set(direction.x * speed, direction.y);
+        print(rigidB.bodyType);
+        rigidB.bodyType = RigidbodyType2D.Dynamic;
+        rigidB.AddForce(new Vector2(direction.x,direction.y)*speed);
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
