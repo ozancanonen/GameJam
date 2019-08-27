@@ -24,15 +24,15 @@ public class Construct : MonoBehaviour
     {
         while (move)
         {
-            gameObject.transform.position = new Vector3((transform.position.x + (direction.x * speed/100)), (transform.position.y + (direction.y * speed/10)), transform.position.z);
+            gameObject.transform.position = new Vector3((transform.position.x + (direction.x * speed / 90)), (transform.position.y + (direction.y * speed / 90)), transform.position.z);
             yield return null;
         }
     }
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
             if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Destroyer")
             {
-            print("I have stopped");
+                print("I have stopped");
                 move = false;
             }
     }

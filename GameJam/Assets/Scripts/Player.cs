@@ -265,16 +265,13 @@ public class Player : MonoBehaviour
                 {
                     print("Hitting the Construct");
                     moveConstruct();
-                    //StartCoroutine(meleeInteraction.gameObject.GetComponent<Construct>().Move(ForceDirection(), firingPos.rotation));
-                    
                 }
                 break;
             case "Player2":
                 meleeInteraction.AddForce(ForceDirection() * knockback);
                 if (meleeInteraction.gameObject.tag == "Construct")
                 {
-                    moveConstruct();
-                    //StartCoroutine(meleeInteraction.gameObject.GetComponent<Construct>().Move(ForceDirection(), firingPos.rotation));
+                    moveConstruct();  
                 }
                 break;
         }               
@@ -285,7 +282,6 @@ public class Player : MonoBehaviour
     {
         Construct c = meleeInteraction.gameObject.GetComponent<Construct>();
         c.Move(ForceDirection(), firingPos.rotation);
-     
     }
     //ForceDirection returns the Vecotor3 
     Vector3 ForceDirection()
