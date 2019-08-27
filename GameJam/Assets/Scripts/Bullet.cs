@@ -18,13 +18,13 @@ public class Bullet : MonoBehaviour
         if (gameObject.tag == "player1Bullet")
             if(col.gameObject.tag == "Player2")
             {
-            col.gameObject.GetComponent<Player>().TakeDamage(50);
+            col.gameObject.GetComponent<Player>().TakeDamage(50,true);
             Destroy(gameObject);
             }
         if (gameObject.tag == "player2Bullet")
             if (col.gameObject.tag == "Player1")
             {
-                col.gameObject.GetComponent<Player>().TakeDamage(50);
+                col.gameObject.GetComponent<Player>().TakeDamage(50,true);
                 Destroy(gameObject);
             }
 
