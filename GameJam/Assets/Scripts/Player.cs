@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     private bool immobolized = false;
     public float channelingTime;
-
+    public float knockback;
 
     public Slider HealthSliderObject;
     public float moveSpeed;
@@ -181,7 +181,7 @@ public class Player : MonoBehaviour
     {
         channelingTime = 2.0f;
         if (inMeleeRange)
-            meleeInteraction.AddForce(transform.right * 5000);
+            meleeInteraction.AddForce(ForceDirection() * knockback);
         yield return new WaitForSeconds(0.25f);
         
         while(Input.GetButton(fireMovementInputButtons))
@@ -195,7 +195,28 @@ public class Player : MonoBehaviour
         }
         canShoot = true;
     }
-
+    Vector3 ForceDirection()
+    {
+        float rot = firingPos.rotation.eulerAngles.z;
+        Vector3 trans = new Vector3(0,0,0);
+        switch (rot)
+        {
+            case 0:
+            case 360:
+                trans = transform.right;
+                break;
+            case 180:
+                trans = -transform.right;
+                break;
+            case 90:
+                trans = transform.up;
+                break;
+            case 270:
+                trans = -transform.up;
+                break;
+        }
+        return trans;
+    }
     void Dead()
     {
         particleObject=Instantiate(deadParticles, firingPos.position, firingPos.rotation);
