@@ -12,6 +12,7 @@ TagManager:
   - Player2
   - Melee
   - Altar
+  - Construct
   layers:
   - Default
   - TransparentFX
