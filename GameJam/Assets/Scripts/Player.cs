@@ -69,12 +69,25 @@ public class Player : MonoBehaviour
             {
                 Wall();
             }
+<<<<<<< Updated upstream
             if (Input.GetButtonDown(Skill2MovementInputButtons))
             {
                 FakeWall();
             }
             GetCharacterInputs();
             ProjectileRotationManager();
+=======
+        }
+
+        if (Input.GetButtonDown(Skill1MovementInputButtons))
+        {
+            Wall();
+        }
+
+        if (Input.GetButtonDown(Skill2MovementInputButtons))
+        {
+            FakeWall();
+>>>>>>> Stashed changes
         }
         Animate();
     }
