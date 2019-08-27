@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        print(col.gameObject.name);
+
         if (col.gameObject.tag == enemyBulletTag)
         {
             playerHealth -= 10;
@@ -158,15 +158,16 @@ public class Player : MonoBehaviour
     {
         channelingTime = 2.0f;
         yield return new WaitForSeconds(0.25f);
-        if (Input.GetButton(fireMovementInputButtons))
+        immobolized = true;
+        while(Input.GetButton(fireMovementInputButtons))
         {
-            StartCoroutine(Immobolize(channelingTime));
             yield return new WaitForSeconds(channelingTime);
             Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
             particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
             particleObject.transform.parent = particleParentObject.transform;
             StartCoroutine(DestroyThisAFter(particleObject, 1));
         }
+        immobolized = false;
         canShoot = true;
     }
 
@@ -193,11 +194,5 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(destroyAfter);
         Destroy(thisObject);
-    }
-    IEnumerator Immobolize(float channeling)
-    {
-        immobolized = true;
-        yield return new WaitForSeconds(channeling);
-        immobolized = false; 
     }
 }
