@@ -14,27 +14,26 @@ public class Player : MonoBehaviour
 
     public GameObject particleParentObject;
     public GameObject bullet;
-    public GameObject lanternObject;
     public GameObject bulletParticles;
     public GameObject deadParticles;
     public GameObject wall;
     public GameObject fakeWall;
 
+    private bool immobolized = false;
     public float channelingTime;
     public float knockback;
+
+    public Slider HealthSliderObject;
     public float moveSpeed;
     public float playerHealth;
-    private bool canShoot;
-    private bool lanternOn;
-    private bool inMeleeRange;
-    private bool immobolized = false;
-    public Slider HealthSliderObject;
     private Vector2 movement;
     public BoxCollider2D melee;
     public Transform firingPos;
     public Transform bulletSpawnPos;
     public Transform particleSpawnPos;
     private GameObject particleObject;
+    private bool canShoot;
+    private bool inMeleeRange;
     private Rigidbody2D meleeInteraction;
 
     private SpriteRenderer sp;
@@ -71,7 +70,7 @@ public class Player : MonoBehaviour
             }
             if (Input.GetButtonDown(Skill2MovementInputButtons))
             {
-                Lantern();
+                FakeWall();
             }
             GetCharacterInputs();
             Animate();
@@ -123,24 +122,16 @@ public class Player : MonoBehaviour
             if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2")
                 inMeleeRange = false;
     }
-    public void TakeDamage(int damage,bool isThisBullet)
+    public void TakeDamage(int damage)
     {
-        if (lanternOn)
+        playerHealth -= damage;
+        HealthSliderObject.value = playerHealth;
+        if (playerHealth <= 0)
         {
-            Lantern();
+            Dead();
+            gm.PlayerIsDeath(gameObject.tag);
+            Destroy(gameObject);
         }
-        else
-        {
-            playerHealth -= damage;
-            HealthSliderObject.value = playerHealth;
-            if (playerHealth <= 0)
-            {
-                Dead();
-                gm.PlayerIsDeath(gameObject.tag);
-                Destroy(gameObject);
-            }
-        }
-        
     }
     void ProjectileRotationManager()
     {
@@ -239,18 +230,10 @@ public class Player : MonoBehaviour
         particleObject.transform.parent = particleParentObject.transform;
     }
 
-    void Lantern()
+    void FakeWall()
     {
-        if (lanternOn)
-        {
-            lanternObject.SetActive(false);
-            lanternOn = false;
-        }
-        else
-        {
-            lanternObject.SetActive(true);
-            lanternOn = true;
-        }
+        particleObject = Instantiate(fakeWall, firingPos.position, firingPos.rotation);
+        particleObject.transform.parent = particleParentObject.transform;
     }
 
     IEnumerator DestroyThisAFter(GameObject thisObject,float destroyAfter)
