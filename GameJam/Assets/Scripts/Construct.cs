@@ -17,7 +17,6 @@ public class Construct : MonoBehaviour
         direction = d;
         collisionDirection.transform.rotation = rotation;
         move = true;
-        collisionDirection.transform.rotation = rotation;
         StartCoroutine(Travel());
     }
     IEnumerator Travel()
