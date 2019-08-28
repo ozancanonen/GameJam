@@ -3881,11 +3881,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 432152880}
     m_Modifications:
-    - target: {fileID: 6664440588103245675, guid: 546c8c4cf67881d4e8bcb87dcac2964f,
-        type: 3}
-      propertyPath: m_Name
-      value: 3LayeredLight
-      objectReference: {fileID: 0}
     - target: {fileID: 6664440588103245677, guid: 546c8c4cf67881d4e8bcb87dcac2964f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3940,6 +3935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664440588103245675, guid: 546c8c4cf67881d4e8bcb87dcac2964f,
+        type: 3}
+      propertyPath: m_Name
+      value: 3LayeredLight
       objectReference: {fileID: 0}
     - target: {fileID: 8431833937254546497, guid: 546c8c4cf67881d4e8bcb87dcac2964f,
         type: 3}
@@ -6681,7 +6681,7 @@ MonoBehaviour:
   Skill1MovementInputButtons: Skill1Player2
   Skill2MovementInputButtons: Skill2Player2
   particleParentObject: {fileID: 569408915}
-  bullet: {fileID: 4781262221777038729, guid: f3cf8f3e3ac8470449c3ad710f022ae6, type: 3}
+  bullet: {fileID: 4781262221777038729, guid: f78246a3643b8224a8680ac83b62087c, type: 3}
   lanternObject: {fileID: 8944152763026128716}
   bulletParticles: {fileID: 998363604263136333, guid: c5c2ae41564936948830d18c71a176a9,
     type: 3}
@@ -6771,7 +6771,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5393302853451786793}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.69, y: 2.25, z: 0}
+  m_LocalPosition: {x: 1.69, y: -8.05, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 5393302852246411986}
