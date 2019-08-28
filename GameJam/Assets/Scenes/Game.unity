@@ -152,7 +152,7 @@ Transform:
   - {fileID: 658714763}
   - {fileID: 6664440587434238918}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &120781027 stripped
 GameObject:
@@ -4595,40 +4595,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1543772794}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1837127416
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3461304235849806954, guid: 4f166a47ffe66d14d84ff8c2a713426b,
-        type: 3}
-      propertyPath: m_Name
-      value: Construct
-      objectReference: {fileID: 0}
-    - target: {fileID: 3461304235849806954, guid: 4f166a47ffe66d14d84ff8c2a713426b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7970693285408724138, guid: 4f166a47ffe66d14d84ff8c2a713426b,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251814212850274537, guid: 4f166a47ffe66d14d84ff8c2a713426b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1348822377716626156, guid: 4f166a47ffe66d14d84ff8c2a713426b,
-        type: 3}
-      propertyPath: m_TagString
-      value: fireCollider
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4f166a47ffe66d14d84ff8c2a713426b, type: 3}
 --- !u!1 &1863205632
 GameObject:
   m_ObjectHideFlags: 0
@@ -4845,7 +4811,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1900240217
 GameObject:
