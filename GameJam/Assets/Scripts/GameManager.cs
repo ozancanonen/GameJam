@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject endOfLevelMenuUI;
     public GameObject Player1HasWonText;
     public GameObject Player2HasWonText;
+    public GameObject fireCollider;
     public GameObject flameParticle;
     public GameObject layer2Light;
     public GameObject particleParentObject;

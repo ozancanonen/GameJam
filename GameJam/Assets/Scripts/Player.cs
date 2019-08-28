@@ -137,6 +137,10 @@ public class Player : MonoBehaviour
         {
             nearAlter = true;
         }
+        if (col.tag == "fireCollider")
+        {
+            TakeDamage(100);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D col)

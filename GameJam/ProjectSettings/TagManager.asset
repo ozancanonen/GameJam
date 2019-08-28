@@ -14,6 +14,7 @@ TagManager:
   - Altar
   - Construct
   - Wall
+  - fireCollider
   layers:
   - Default
   - TransparentFX

@@ -49,6 +49,7 @@ public class Construct : MonoBehaviour
             particleObject.transform.parent = gm.particleParentObject.transform;
             particleObject = Instantiate(gm.layer2Light, gameObject.transform.position,Quaternion.identity);
             particleObject.transform.parent = gm.particleParentObject.transform;
+            Instantiate(gm.fireCollider, gameObject.transform.position, Quaternion.identity);
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             Destroy(col.gameObject);
 

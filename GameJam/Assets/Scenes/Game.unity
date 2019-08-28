@@ -983,6 +983,8 @@ MonoBehaviour:
   endOfLevelMenuUI: {fileID: 1156087199}
   Player1HasWonText: {fileID: 1216951837}
   Player2HasWonText: {fileID: 1464199836}
+  fireCollider: {fileID: 8494950303345391573, guid: 97ee21c4c75adcd4e8bb25cc50eb4707,
+    type: 3}
   flameParticle: {fileID: 998363604263136333, guid: db86d04f82e99f24f9dcf17abac6c0d5,
     type: 3}
   layer2Light: {fileID: 4235604586491000096, guid: dde0308c5949f914e9eff72b44b58960,
@@ -4619,6 +4621,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348822377716626156, guid: 4f166a47ffe66d14d84ff8c2a713426b,
+        type: 3}
+      propertyPath: m_TagString
+      value: fireCollider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f166a47ffe66d14d84ff8c2a713426b, type: 3}
