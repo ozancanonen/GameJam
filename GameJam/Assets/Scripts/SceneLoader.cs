@@ -6,6 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    private float currentSceneNumber;
+    public float menuSceneNumber;
+
+    private void Start()
+    {
+        currentSceneNumber = SceneManager.GetActiveScene().buildIndex;   
+    }
+
+    private void Update()
+    {
+        if (currentSceneNumber == menuSceneNumber) // In the future, we need to make more menuSceneNumbers to make it work.
+        {   
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                QuitGame();
+            }
+        }
+    }
+
     public void LoadLevel(string SceneName)
     {
         SceneManager.LoadScene(SceneName);
@@ -23,6 +42,7 @@ public class SceneLoader : MonoBehaviour
 
     public void QuitGame()
     {
+        Debug.Log("Quit the game");
         Application.Quit();
     }
 

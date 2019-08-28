@@ -37,7 +37,7 @@ public class Construct : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Destroyer");
-            move = false;
+        move = false;
 
         if (col.gameObject.tag == "player1Bullet"|| col.gameObject.tag == "player2Bullet")
         {
@@ -61,7 +61,7 @@ public class Construct : MonoBehaviour
 
     IEnumerator Death()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(6);
         Destroy(gameObject);
     }
 }
