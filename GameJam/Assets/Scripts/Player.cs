@@ -237,12 +237,12 @@ public class Player : MonoBehaviour
     IEnumerator Melee()
     {
         int i = 0;
-        while (waitTime > Time.fixedTime)
+        while (waitTime > Time.fixedTime && i < 2)
         {
             if (!Input.GetButton(fireMovementInputButtons))
             {
                 i++;
-                if (i > 2 && inMeleeRange)
+                if (i < 2 && inMeleeRange)
                 {
                     Interaction();
                 }
