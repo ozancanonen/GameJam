@@ -159,7 +159,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &7328843100689889566
 MonoBehaviour:
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 1986052819901565963}
   - component: {fileID: 798348546428494565}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

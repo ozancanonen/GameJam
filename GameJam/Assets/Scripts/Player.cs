@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
     public float playerHealth;
     public float lanternDurabilityMagnifier;
     private bool canShoot;
-    private bool isBuilding;
     private bool nearAlter;
     private bool lanternOn=true;
     private bool inMeleeRange;
@@ -115,7 +114,6 @@ public class Player : MonoBehaviour
         movement.x = Input.GetAxisRaw(horizontalMovementInputButtons);
         movement.y = Input.GetAxisRaw(verticalMovementInputButtons);
     }
-
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (gameObject.tag != col.gameObject.tag)
@@ -311,16 +309,20 @@ public class Player : MonoBehaviour
         switch (rot)
         {
             case 0:
+            case 315:
             case 360:
                 trans = transform.right;
                 break;
             case 180:
+            case 135:
                 trans = -transform.right;
                 break;
             case 90:
+            case 45:
                 trans = transform.up;
                 break;
             case 270:
+            case 225:
                 trans = -transform.up;
                 break;
         }
@@ -335,10 +337,10 @@ public class Player : MonoBehaviour
 
     IEnumerator buildConstruct(float waitingtime)
     {
-        isBuilding = true;
         StartCoroutine(Immobolize(waitingtime));
         yield return new WaitForSeconds(waitingtime);
         particleObject = Instantiate(wall, bulletSpawnPos.position, wall.transform.rotation);
+        particleObject.GetComponent<Construct>().collisionDirection.transform.rotation = firingPos.rotation;
         particleObject.transform.parent = particleParentObject.transform;
     }
 

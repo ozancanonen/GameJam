@@ -35,21 +35,28 @@ public class Construct : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Destroyer");
-        move = false;
-
-        if (col.gameObject.tag == "player1Bullet"|| col.gameObject.tag == "player2Bullet")
+        switch (col.gameObject.tag)
         {
-            bonfire = true;
-            move = false;
-            GameObject particleObject = Instantiate(gm.flameParticle,gameObject.transform.position+new Vector3(0,0,-4f),
-            Quaternion.Euler(270f,90f,0f));
-            particleObject.transform.parent = gm.particleParentObject.transform;
-            particleObject = Instantiate(gm.layer2Light, gameObject.transform.position,Quaternion.identity);
-            particleObject.transform.parent = gm.particleParentObject.transform;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-            Destroy(col.gameObject);
-            StartCoroutine(Death());
+            case "Destroyer":
+            case "Wall":
+            case "Player1":
+            case "Player2":
+                move = false;
+                print("Tag is: " + col.gameObject.tag);
+                break;
+            case "Player1Bullet":
+            case "Player2Bullet":
+                bonfire = true;
+                move = false;
+                GameObject particleObject = Instantiate(gm.flameParticle, gameObject.transform.position + new Vector3(0, 0, -4f),
+                Quaternion.Euler(270f, 90f, 0f));
+                particleObject.transform.parent = gm.particleParentObject.transform;
+                particleObject = Instantiate(gm.layer2Light, gameObject.transform.position, Quaternion.identity);
+                particleObject.transform.parent = gm.particleParentObject.transform;
+                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                Destroy(col.gameObject);
+                StartCoroutine(Death());
+                break;
         }
     }
     private void OnTriggerExit2D(Collider2D col)
