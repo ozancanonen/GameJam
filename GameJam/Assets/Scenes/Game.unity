@@ -3664,7 +3664,7 @@ MonoBehaviour:
   fakeWall: {fileID: 5973862783429338963, guid: ecbde66d7550abd4bb0ad43da1e89e7b,
     type: 3}
   channelingTime: 1
-  knockback: 50
+  knockback: 5000
   moveSpeed: 10
   playerHealth: 100
   lanternDurabilityMagnifier: 20
@@ -6019,7 +6019,7 @@ MonoBehaviour:
   fakeWall: {fileID: 5973862783429338963, guid: ecbde66d7550abd4bb0ad43da1e89e7b,
     type: 3}
   channelingTime: 1
-  knockback: 50
+  knockback: 5000
   moveSpeed: 10
   playerHealth: 100
   lanternDurabilityMagnifier: 20
