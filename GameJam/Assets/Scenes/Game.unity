@@ -978,6 +978,7 @@ MonoBehaviour:
   layer2Light: {fileID: 4235604586491000096, guid: dde0308c5949f914e9eff72b44b58960,
     type: 3}
   particleParentObject: {fileID: 569408915}
+  audioManager: {fileID: 519420030}
 --- !u!1 &479393808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1034,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1048,6 +1050,62 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd715d320b05bde4bb048904201e59da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Shop
+    clip: {fileID: 8300000, guid: 973273b15daad364aa253e076ba091d1, type: 3}
+    volume: 1
+    pitch: 1
+    priority: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Alter
+    clip: {fileID: 8300000, guid: 973273b15daad364aa253e076ba091d1, type: 3}
+    volume: 1
+    pitch: 1
+    priority: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Wood1
+    clip: {fileID: 8300000, guid: 174d6ea32f241ca46b4f40eb466332da, type: 3}
+    volume: 1
+    pitch: 1
+    priority: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Wood2
+    clip: {fileID: 8300000, guid: 1b63d4348df2e7544bff1b3271bf9f9d, type: 3}
+    volume: 1
+    pitch: 1
+    priority: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Wood3
+    clip: {fileID: 8300000, guid: c5a6fa7906280904293b447d88124b9c, type: 3}
+    volume: 1
+    pitch: 1
+    priority: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: GuiButton
+    clip: {fileID: 8300000, guid: 50e8848a4520bcf4797fd7afd73f191a, type: 3}
+    volume: 1
+    pitch: 1
+    priority: 0
+    loop: 0
+    source: {fileID: 0}
+  mute: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3363,6 +3421,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464199836}
   m_CullTransparentMesh: 0
+--- !u!1 &1486905368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1486905370}
+  - component: {fileID: 1486905369}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1486905369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486905368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95927b3c5a5b8e64883f16ba980bee3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
+  AudioClips: []
+--- !u!4 &1486905370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486905368}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1415012, y: 3.346615, z: -19.574219}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1543772794
 PrefabInstance:
   m_ObjectHideFlags: 0

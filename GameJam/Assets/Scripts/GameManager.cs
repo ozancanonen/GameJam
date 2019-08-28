@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject layer2Light;
     public GameObject particleParentObject;
 
+    public AudioManager audioManager;
 
 
     // Update is called once per frame
