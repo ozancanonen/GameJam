@@ -32,15 +32,14 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    public IEnumerator footStepSounds(string sound1, string sound2, string sound3,int numberOfRepetition)
+    public IEnumerator footStepSounds(string sound1, string sound2, float waitingTime)
     {
-        string[] currentSound = { sound1 , sound2 , sound3 };
+        string[] currentSound = { sound1 , sound2};
 
         for (int i = 0; i <2; i++)
         {
-            //int a = Random.Range(0, 3);
             audioManager.Play(currentSound[i]);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(waitingTime);
         }
     }
 
@@ -51,8 +50,7 @@ public class GameManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
-        StartCoroutine(footStepSounds("Wood1", "Wood2"," Wood3", 3
-            ));
+        StartCoroutine(footStepSounds("Wood1", "Wood1", 0.4f));
     }
 
     void Pause()
