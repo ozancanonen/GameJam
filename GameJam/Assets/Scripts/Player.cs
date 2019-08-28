@@ -238,13 +238,14 @@ public class Player : MonoBehaviour
     }
     IEnumerator Melee()
     {
+        int i = 0;
         while (waitTime > Time.fixedTime)
         {
             if (!Input.GetButton(fireMovementInputButtons))
             {
-                if (inMeleeRange && !doingInteraction)
+                i++;
+                if (i > 2 && inMeleeRange)
                 {
-                    doingInteraction = true;
                     Interaction();
                 }
             }
@@ -263,7 +264,7 @@ public class Player : MonoBehaviour
     void Interaction ()
     {
         {
-            doingInteraction = true;
+            
             switch (gameObject.tag)
             {
                 case "Player1":
@@ -271,7 +272,7 @@ public class Player : MonoBehaviour
                     {
                         meleeInteraction.AddForce(ForceDirection() * knockback);
                         meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1);
-                        doingInteraction = false;
+                        
                     }
                     if (meleeInteraction.gameObject.tag == "Construct")
                     {
@@ -284,7 +285,7 @@ public class Player : MonoBehaviour
                     {
                         meleeInteraction.AddForce(ForceDirection() * knockback);
                         meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1);
-                        doingInteraction = false;
+                        
                     }
                     meleeInteraction.AddForce(ForceDirection() * knockback);
                     if (meleeInteraction.gameObject.tag == "Construct")
@@ -300,7 +301,7 @@ public class Player : MonoBehaviour
     private void moveConstruct()
     {
         Construct c = meleeInteraction.gameObject.GetComponent<Construct>();
-        doingInteraction = c.Move(ForceDirection(), firingPos.rotation);
+        c.Move(ForceDirection(), firingPos.rotation);
     }
     //ForceDirection returns the Vecotor3 
     Vector3 ForceDirection()

@@ -17,14 +17,13 @@ public class Construct : MonoBehaviour
     {
         gm = gameObject.GetComponentInParent<GameManager>();
     }
-    public bool Move(Vector3 d, Quaternion rotation)
+    public void Move(Vector3 d, Quaternion rotation)
     {
         print("I am moving");
         direction = d;
         collisionDirection.transform.rotation = rotation;
         if(move && !bonfire)
             StartCoroutine(Travel());
-        return false;
     }
     IEnumerator Travel()
     {
