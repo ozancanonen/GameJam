@@ -27,11 +27,11 @@ public class Construct : MonoBehaviour
     }
     IEnumerator Travel()
     {
-        do
+        while(move)
         {
             gameObject.transform.position = new Vector3((transform.position.x + (direction.x * speed / 90)), (transform.position.y + (direction.y * speed / 90)), transform.position.z);
             yield return null;
-        } while (move);
+        }
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -40,6 +40,7 @@ public class Construct : MonoBehaviour
         {
             case "Destroyer":
             case "Wall":
+                StopAllCoroutines();
                 move = false;
                 break;
             case "Player1":
@@ -48,6 +49,7 @@ public class Construct : MonoBehaviour
                 {
                     Destroy(col.gameObject);
                 }
+                StopAllCoroutines();
                 move = false;
                 break;
             case "Player1Bullet":
@@ -56,6 +58,7 @@ public class Construct : MonoBehaviour
                 {
                     bonfire = true;
                     move = false;
+                    StopAllCoroutines();
                     GameObject particleObject = Instantiate(gm.flameParticle, gameObject.transform.position + new Vector3(0, 0, -4f),
                     Quaternion.Euler(270f, 90f, 0f));
                     particleObject.transform.parent = gm.particleParentObject.transform;
