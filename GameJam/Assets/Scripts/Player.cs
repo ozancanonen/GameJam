@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -188,33 +189,30 @@ public class Player : MonoBehaviour
 
     void ProjectileRotationManager()
     {
-        //
-        if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
-        {
-            if (movement.x > 0)
-            {
-                firingPos.rotation = Quaternion.Euler(0, 0,0 );
-                //particleSpawnPos.rotation = Quaternion.Euler(0, 90f, 0);
-            }
-            else
-            {
-                firingPos.rotation = Quaternion.Euler(0, 0, 180);
-                //particleSpawnPos.rotation = Quaternion.Euler(180, 90f, 0);
-            }
-        }
-        if (Mathf.Abs(movement.y) > Mathf.Abs(movement.x))
-        {
-            if (movement.y > 0)
-            {
-                firingPos.rotation = Quaternion.Euler(0, 0, 90f);
-                //particleSpawnPos.rotation = Quaternion.Euler(270f, 90f, 0);
-            }
-            else
-            {
-                firingPos.rotation = Quaternion.Euler(0, 0, -90f);
-                //particleSpawnPos.rotation = Quaternion.Euler(90f, 90f, 0);
-            }
-        }
+        //d press
+        if (movement == new Vector2(1, 0))
+            firingPos.rotation = Quaternion.Euler(0, 0, 0);
+        //a press
+        if (movement == new Vector2(-1, 0))
+            firingPos.rotation = Quaternion.Euler(0, 0, 180);
+        //w press
+        if (movement == new Vector2(0, 1))
+            firingPos.rotation = Quaternion.Euler(0, 0, 90);
+        //s press
+        if (movement == new Vector2(0, -1))
+            firingPos.rotation = Quaternion.Euler(0, 0, 270);
+        //d & w press
+        if (movement == new Vector2(1, 1))
+            firingPos.rotation = Quaternion.Euler(0, 0, 45);
+        //d & s press
+        if (movement == new Vector2(1, -1))
+            firingPos.rotation = Quaternion.Euler(0, 0, 315);
+        //a & w press
+        if (movement == new Vector2(-1,1))
+            firingPos.rotation = Quaternion.Euler(0, 0, 135);
+        //a & s press
+        if (movement == new Vector2(-1, -1))
+            firingPos.rotation = Quaternion.Euler(0, 0, 225);
     }
 
     //we set the values we get from the player for the animator
