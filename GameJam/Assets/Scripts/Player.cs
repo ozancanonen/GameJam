@@ -270,6 +270,7 @@ public class Player : MonoBehaviour
                     {
                         meleeInteraction.AddForce(ForceDirection() * knockback);
                         meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1);
+                        meleeInteraction.gameObject.GetComponent<Player>().TakeDamage(0);
                         
                     }
                     if (meleeInteraction.gameObject.tag == "Construct")
@@ -283,7 +284,8 @@ public class Player : MonoBehaviour
                     {
                         meleeInteraction.AddForce(ForceDirection() * knockback);
                         meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1);
-                        
+                        meleeInteraction.gameObject.GetComponent<Player>().TakeDamage(0);
+
                     }
                     meleeInteraction.AddForce(ForceDirection() * knockback);
                     if (meleeInteraction.gameObject.tag == "Construct")
