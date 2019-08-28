@@ -6,7 +6,7 @@ public class Construct : MonoBehaviour
 {
     public Rigidbody2D rigidB;
     public float speed;
-    private bool move;
+    private bool move = true;
     private Vector3 direction;
     public GameObject collisionDirection;
     private GameManager gm;
@@ -27,14 +27,15 @@ public class Construct : MonoBehaviour
     }
     IEnumerator Travel()
     {
-        while (move)
+        do
         {
             gameObject.transform.position = new Vector3((transform.position.x + (direction.x * speed / 90)), (transform.position.y + (direction.y * speed / 90)), transform.position.z);
             yield return null;
-        }
+        } while (move);
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
+        print("Tag is: " + col.gameObject.tag);
         switch (col.gameObject.tag)
         {
             case "Destroyer":
@@ -42,7 +43,6 @@ public class Construct : MonoBehaviour
             case "Player1":
             case "Player2":
                 move = false;
-                print("Tag is: " + col.gameObject.tag);
                 break;
             case "Player1Bullet":
             case "Player2Bullet":

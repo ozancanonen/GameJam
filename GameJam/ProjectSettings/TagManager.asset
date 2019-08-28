@@ -6,7 +6,6 @@ TagManager:
   tags:
   - bullet
   - player1Bullet
-  - player2Bullet
   - Destroyer
   - Player1
   - Player2
@@ -15,6 +14,8 @@ TagManager:
   - Construct
   - Wall
   - fireCollider
+  - Player1Bullet
+  - Player2Bullet
   layers:
   - Default
   - TransparentFX
