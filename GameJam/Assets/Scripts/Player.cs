@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public GameObject wall;
     public GameObject fakeWall;
 
+    private bool doneChanneling;
     public float channelingTime;
     private float channelingTimeCounter;
     public float knockback;
@@ -68,9 +69,7 @@ public class Player : MonoBehaviour
             {
                 if (canShoot)
                 {
-                    waitTime = Time.fixedTime + 0.25f;
-                    canShoot = false;
-                    StartCoroutine(Shoot());
+                    Attack();
                 }
             }
 
@@ -238,33 +237,38 @@ public class Player : MonoBehaviour
         anim.SetFloat("Speed", movement.magnitude);
     }
 
-    IEnumerator Shoot()
+    private void Attack()
     {
-        channelingTimeCounter = channelingTime;
-        while(waitTime > Time.fixedTime)
+        canShoot = false;
+        waitTime = Time.fixedTime + 0.25f;
+        channelingTimeCounter = channelingTime + Time.fixedTime;
+        StartCoroutine(Melee());
+        StartCoroutine(Channel());
+    }
+    IEnumerator Melee()
+    {
+        while (waitTime > Time.fixedTime)
         {
-            if(!Input.GetButton(fireMovementInputButtons))
+            if (!Input.GetButton(fireMovementInputButtons))
             {
                 if (inMeleeRange && !doingInteraction)
                 {
                     doingInteraction = true;
-                        Interaction();
+                    Interaction();
                 }
             }
             yield return null;
-
         }
-        while(Input.GetButton(fireMovementInputButtons))
-        {
-            StartCoroutine(Immobolize(channelingTimeCounter));
-            yield return new WaitForSeconds(channelingTimeCounter);
-            Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
-            particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
-            particleObject.transform.parent = particleParentObject.transform;
-            StartCoroutine(DestroyThisAFter(particleObject, 1));
-        }
+    }
+    void Firebolt()
+    {
+        Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
+        particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
+        particleObject.transform.parent = particleParentObject.transform;
+        StartCoroutine(DestroyThisAFter(particleObject, 1));
         canShoot = true;
     }
+
     void Interaction ()
     {
         {
@@ -342,7 +346,7 @@ public class Player : MonoBehaviour
         isBuilding = true;
         StartCoroutine(Immobolize(waitingtime));
         yield return new WaitForSeconds(waitingtime);
-        particleObject = Instantiate(wall, bulletSpawnPos.position, firingPos.rotation);
+        particleObject = Instantiate(wall, bulletSpawnPos.position, wall.transform.rotation);
         particleObject.transform.parent = particleParentObject.transform;
     }
 
@@ -355,6 +359,22 @@ public class Player : MonoBehaviour
     {
         immobolized = true;
         yield return new WaitForSeconds(channeling);
+        immobolized = false;
+    }
+    IEnumerator Channel()
+    {
+        while (Input.GetButton(fireMovementInputButtons))
+        {
+            immobolized = true;
+            if (channelingTimeCounter < Time.fixedTime)
+            {
+                Firebolt();
+                canShoot = true;
+                channelingTimeCounter = channelingTime + Time.fixedTime;
+            }
+            yield return null;
+        }
+        canShoot = true;
         immobolized = false;
     }
 }
