@@ -74,7 +74,7 @@ public class Construct : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Destroyer");
+        if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Destroyer")
             move = true;
     }
 
