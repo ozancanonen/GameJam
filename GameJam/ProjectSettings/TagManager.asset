@@ -50,9 +50,27 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Lights
     uniqueID: 2985604355
+    locked: 0
+  - name: Level1(Blazing)
+    uniqueID: 2352032473
+    locked: 0
+  - name: Player
+    uniqueID: 796904189
+    locked: 0
+  - name: Level2(Bright)
+    uniqueID: 3245146961
+    locked: 0
+  - name: Level3(Dim)
+    uniqueID: 1051409835
+    locked: 0
+  - name: level4(Shadows)
+    uniqueID: 4291949057
+    locked: 0
+  - name: Construct
+    uniqueID: 2352686821
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
