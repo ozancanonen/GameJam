@@ -9,8 +9,14 @@ public class Construct : MonoBehaviour
     private bool move;
     private Vector3 direction;
     public GameObject collisionDirection;
+
+    private GameManager gm;
     // Start is called before the first frame update
-    
+
+    private void Start()
+    {
+        gm = gameObject.GetComponentInParent<GameManager>();
+    }
     public bool Move(Vector3 d, Quaternion rotation)
     {
         print("I am moving");
@@ -30,11 +36,23 @@ public class Construct : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-            if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Destroyer")
-            {
-                print("I have stopped");
-                move = false;
-            }
+        if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Destroyer")
+        {
+            print("I have stopped");
+            move = false;
+        }
+        if (col.gameObject.tag == "player1Bullet"|| col.gameObject.tag == "player2Bullet")
+        {
+            move = false;
+            GameObject particleObject = Instantiate(gm.flameParticle,gameObject.transform.position+new Vector3(0,0,-4f),
+            Quaternion.Euler(270f,90f,0f));
+            particleObject.transform.parent = gm.particleParentObject.transform;
+            particleObject = Instantiate(gm.layer2Light, gameObject.transform.position,Quaternion.identity);
+            particleObject.transform.parent = gm.particleParentObject.transform;
+            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            Destroy(col.gameObject);
+
+        }
     }
 
 }

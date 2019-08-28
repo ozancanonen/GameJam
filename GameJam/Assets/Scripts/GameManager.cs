@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     public GameObject endOfLevelMenuUI;
     public GameObject Player1HasWonText;
     public GameObject Player2HasWonText;
+    public GameObject flameParticle;
+    public GameObject layer2Light;
+    public GameObject particleParentObject;
+
 
 
     // Update is called once per frame

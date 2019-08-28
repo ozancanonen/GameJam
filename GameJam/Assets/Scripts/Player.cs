@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public GameObject fakeWall;
 
     public float channelingTime;
+    private float channelingTimeCounter;
     public float knockback;
     public float moveSpeed;
     public float playerHealth;
@@ -234,7 +235,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        channelingTime = 2.0f;
+        channelingTimeCounter = channelingTime;
         while(waitTime > Time.fixedTime)
         {
             if(!Input.GetButton(fireMovementInputButtons))
@@ -250,8 +251,8 @@ public class Player : MonoBehaviour
         }
         while(Input.GetButton(fireMovementInputButtons))
         {
-            StartCoroutine(Immobolize(channelingTime));
-            yield return new WaitForSeconds(channelingTime);
+            StartCoroutine(Immobolize(channelingTimeCounter));
+            yield return new WaitForSeconds(channelingTimeCounter);
             Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
             particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
             particleObject.transform.parent = particleParentObject.transform;
@@ -333,7 +334,7 @@ public class Player : MonoBehaviour
 
     void Wall()
     {
-        particleObject = Instantiate(wall, firingPos.position, firingPos.rotation);
+        particleObject = Instantiate(wall, bulletSpawnPos.position, firingPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
     }
 
