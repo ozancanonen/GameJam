@@ -255,7 +255,7 @@ public class Player : MonoBehaviour
         Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
         particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
-        StartCoroutine(DestroyThisAFter(particleObject, 1));
+        StartCoroutine(gm.DestroyThisAFter(particleObject, 1));
         canShoot = true;
     }
 
@@ -332,7 +332,7 @@ public class Player : MonoBehaviour
     {
         particleObject=Instantiate(deadParticles, firingPos.position, firingPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
-        StartCoroutine(DestroyThisAFter(particleObject, 1));
+        StartCoroutine(gm.DestroyThisAFter(particleObject, 1));
     }
 
     IEnumerator buildConstruct(float waitingtime)
@@ -342,12 +342,6 @@ public class Player : MonoBehaviour
         particleObject = Instantiate(wall, bulletSpawnPos.position, wall.transform.rotation);
         particleObject.GetComponent<Construct>().collisionDirection.transform.rotation = firingPos.rotation;
         particleObject.transform.parent = particleParentObject.transform;
-    }
-
-    IEnumerator DestroyThisAFter(GameObject thisObject,float destroyAfter)
-    {
-        yield return new WaitForSeconds(destroyAfter);
-        Destroy(thisObject);
     }
     IEnumerator Immobolize(float channeling)
     {

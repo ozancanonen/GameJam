@@ -76,4 +76,10 @@ public class GameManager : MonoBehaviour
         endOfLevelMenuUI.SetActive(true);
     }
 
+    public IEnumerator DestroyThisAFter(GameObject thisObject, float destroyAfter)
+    {
+        yield return new WaitForSeconds(destroyAfter);
+        Destroy(thisObject);
+    }
+
 }
