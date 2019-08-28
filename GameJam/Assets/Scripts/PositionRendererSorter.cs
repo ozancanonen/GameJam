@@ -18,6 +18,6 @@ public class PositionRendererSorter : MonoBehaviour
 
     private void LateUpdate()
     {
-        thisRenderer.sortingOrder = (int)(sortingOrderBase - transform.position.y- offset);
+        thisRenderer.sortingOrder = (int)(sortingOrderBase - (transform.position.y- offset)/2);
     }
 }
