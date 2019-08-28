@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public float playerHealth;
     public float lanternDurabilityMagnifier;
     private bool canShoot;
+    private bool isBuilding;
     private bool nearAlter;
     private bool lanternOn=true;
     private bool inMeleeRange;
@@ -75,7 +76,7 @@ public class Player : MonoBehaviour
 
             if (Input.GetButtonDown(Skill1MovementInputButtons))
             {
-                Wall();
+                StartCoroutine(buildConstruct(1f));
             }
             if (Input.GetButtonDown(Skill2MovementInputButtons))
             {
@@ -332,8 +333,11 @@ public class Player : MonoBehaviour
         StartCoroutine(DestroyThisAFter(particleObject, 1));
     }
 
-    void Wall()
+    IEnumerator buildConstruct(float waitingtime)
     {
+        isBuilding = true;
+        StartCoroutine(Immobolize(waitingtime));
+        yield return new WaitForSeconds(waitingtime);
         particleObject = Instantiate(wall, bulletSpawnPos.position, firingPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
     }
