@@ -40,22 +40,32 @@ public class Construct : MonoBehaviour
         {
             case "Destroyer":
             case "Wall":
+                move = false;
+                break;
             case "Player1":
             case "Player2":
+                if (bonfire)
+                {
+                    Destroy(col.gameObject);
+                }
                 move = false;
                 break;
             case "Player1Bullet":
             case "Player2Bullet":
-                bonfire = true;
-                move = false;
-                GameObject particleObject = Instantiate(gm.flameParticle, gameObject.transform.position + new Vector3(0, 0, -4f),
-                Quaternion.Euler(270f, 90f, 0f));
-                particleObject.transform.parent = gm.particleParentObject.transform;
-                particleObject = Instantiate(gm.layer2Light, gameObject.transform.position, Quaternion.identity);
-                particleObject.transform.parent = gm.particleParentObject.transform;
-                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                if (!bonfire)
+                {
+                    bonfire = true;
+                    move = false;
+                    GameObject particleObject = Instantiate(gm.flameParticle, gameObject.transform.position + new Vector3(0, 0, -4f),
+                    Quaternion.Euler(270f, 90f, 0f));
+                    particleObject.transform.parent = gm.particleParentObject.transform;
+                    particleObject = Instantiate(gm.layer2Light, gameObject.transform.position, Quaternion.identity);
+                    particleObject.transform.parent = gm.particleParentObject.transform;
+                    gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                    StartCoroutine(gm.DestroyThisAFter(gameObject, 6));
+                    StartCoroutine(gm.DestroyThisAFter(particleObject, 6));
+                }
                 Destroy(col.gameObject);
-                Death();
                 break;
         }
     }
@@ -65,9 +75,4 @@ public class Construct : MonoBehaviour
             move = true;
     }
 
-    IEnumerator Death()
-    {
-        yield return new WaitForSeconds(6);
-        Destroy(gameObject);
-    }
 }
