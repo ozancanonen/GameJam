@@ -15,13 +15,13 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (gameObject.tag == "player1Bullet")
+        if (gameObject.tag == "Player1Bullet")
             if(col.gameObject.tag == "Player2")
             {
             col.gameObject.GetComponent<Player>().TakeDamage(50);
             Destroy(gameObject);
             }
-        if (gameObject.tag == "player2Bullet")
+        if (gameObject.tag == "Player2Bullet")
             if (col.gameObject.tag == "Player1")
             {
                 col.gameObject.GetComponent<Player>().TakeDamage(50);

@@ -55,7 +55,7 @@ public class Construct : MonoBehaviour
                 particleObject.transform.parent = gm.particleParentObject.transform;
                 gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 Destroy(col.gameObject);
-                StartCoroutine(Death());
+                Death();
                 break;
         }
     }
