@@ -1,7 +1,19 @@
 fileFormatVersion: 2
-guid: 4352976ff3a049649bce4dcce617bce1
+guid: 41a59bff8af873a4a9b90f1d486ae6c5
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3025856485482806236
+    second: DiagonalUpRight-Sheet (1)_0
+  - first:
+      213: 442027365821489205
+    second: DiagonalUpRight-Sheet (1)_1
+  - first:
+      213: 4021837053912225844
+    second: DiagonalUpRight-Sheet (1)_2
+  - first:
+      213: 9024706078232965732
+    second: DiagonalUpRight-Sheet (1)_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +120,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DiagonalUpRight-Sheet (1)_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 64
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7885e5370edec4d873a75d65eeff84
+      internalID: 3025856485482806236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalUpRight-Sheet (1)_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 12
+        width: 64
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1569e99e81706634b8084258ad7bfd3f
+      internalID: 442027365821489205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalUpRight-Sheet (1)_2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 12
+        width: 64
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c19d892d9a07b7f4480c6344c84c1f8b
+      internalID: 4021837053912225844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalUpRight-Sheet (1)_3
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 12
+        width: 64
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13c3319f6c6de6042b879cc0f0958b08
+      internalID: 9024706078232965732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
