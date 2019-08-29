@@ -181,6 +181,7 @@ public class Player : MonoBehaviour
             if (playerHealth <= 0)
             {
                 Dead();
+                anim.SetTrigger("Dead");
                 Destroy(gameObject);
             }
         }
