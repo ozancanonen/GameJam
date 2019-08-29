@@ -60,9 +60,9 @@ public class GameManager : MonoBehaviour
         gameIsPaused = true;
     }
 
-    public void PlayerIsDeath(string playerTag)
+    public IEnumerator PlayerIsDeath(string playerTag)
     {
-        Time.timeScale = 0f;
+        yield return new WaitForSeconds(1f);
         if (playerTag == "Player1")
         {
             Player2HasWonText.SetActive(true);
@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
         {
             Player1HasWonText.SetActive(true);
         }
+        Time.timeScale = 0;
         endOfLevelMenuUI.SetActive(true);
     }
 
