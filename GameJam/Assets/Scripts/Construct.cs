@@ -39,6 +39,7 @@ public class Construct : MonoBehaviour
         {
             case "Destroyer":
             case "Wall":
+            case "Construct":
                 StopAllCoroutines();
                 move = false;
                 break;

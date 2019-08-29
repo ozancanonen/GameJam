@@ -16,6 +16,7 @@ TagManager:
   - fireCollider
   - Player1Bullet
   - Player2Bullet
+  - Bonfire
   layers:
   - Default
   - TransparentFX
