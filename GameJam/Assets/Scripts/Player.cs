@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public GameObject wall;
     public GameObject fakeWall;
 
+    private bool obstructed;
     private bool doneChanneling;
     public float channelingTime;
     private float channelingTimeCounter;
@@ -76,7 +77,8 @@ public class Player : MonoBehaviour
             }
             if (Input.GetButtonDown(Skill1MovementInputButtons))
             {
-                StartCoroutine(buildConstruct(1f));
+                if (!obstructed)
+                    StartCoroutine(buildConstruct(1f));
             }
             if (Input.GetButtonDown(Skill2MovementInputButtons))
             {
@@ -134,13 +136,32 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        switch(col.gameObject.tag)
+        {
+            case "Player1":
+            case "Player2":
+            case "Construct":
+            case "Wall":
+                obstructed = true;
+                break;
+
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D col)
     {
         if (gameObject.tag != col.gameObject.tag)
         {
             if (col.gameObject.tag == "Player1" || col.gameObject.tag == "Player2" || col.gameObject.tag == "Construct")
+            {
+                obstructed = false;
                 inMeleeRange = false;
+            }
         }
+        if (col.tag == "Wall")
+            obstructed = false;
         if (col.tag == "Altar")
         {
             nearAlter = false;
