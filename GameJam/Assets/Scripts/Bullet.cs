@@ -27,6 +27,8 @@ public class Bullet : MonoBehaviour
                 col.gameObject.GetComponent<Player>().TakeDamage(100);
                 Destroy(gameObject);
             }
+        if (col.tag == "Construct")
+            Destroy(gameObject);
 
     }
 

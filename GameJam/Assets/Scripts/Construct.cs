@@ -41,10 +41,10 @@ public class Construct : MonoBehaviour
                 break;
             case "Player1Bullet":
             case "Player2Bullet":
-                    move = false;
-                    StopAllCoroutines();
-                GameObject BF = Instantiate(bonfire, gameObject.transform.position, bonfire.transform.rotation);
-                Destroy(col.gameObject);
+            case "Bonfire":
+                move = false;
+                StopAllCoroutines();
+                GameObject BF = Instantiate(bonfire, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, bonfire.transform.localPosition.z), bonfire.transform.rotation);
                 Destroy(gameObject);
                 break;
         }
