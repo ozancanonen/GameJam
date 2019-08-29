@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4235604586491000158}
   - component: {fileID: 4235604586491000159}
   m_Layer: 0
-  m_Name: 2LayeredLight 1
+  m_Name: 2LayeredLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4235604586491000096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.33, y: -6.6855726, z: -1.0955734}
-  m_LocalScale: {x: 21.81905, y: 21.753788, z: 21.753788}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355670533402876747}
   m_Father: {fileID: 0}
@@ -70,7 +70,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7422cdc2e9b549648bfa5be7684bf8f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 810f20f8c1edb094c91357248d5da9a4, type: 3}
   m_MaskAlphaCutoff: 0.722
   m_FrontSortingLayerID: -1309362941
   m_BackSortingLayerID: -1309362941
@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 4355670533655205021}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.50902176, y: 0.5090218, z: 0.5090218}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4355670533402876747}
   m_RootOrder: 0
@@ -181,7 +181,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7422cdc2e9b549648bfa5be7684bf8f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8524222ff6fa88c4185afa0c319b8f14, type: 3}
   m_MaskAlphaCutoff: 1
   m_FrontSortingLayerID: -1309362941
   m_BackSortingLayerID: -1309362941
@@ -217,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 5081365430581041837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4355670533402876747}
   m_RootOrder: 1
@@ -260,7 +260,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7422cdc2e9b549648bfa5be7684bf8f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8524222ff6fa88c4185afa0c319b8f14, type: 3}
   m_MaskAlphaCutoff: 1
   m_FrontSortingLayerID: 790119301
   m_BackSortingLayerID: 0
