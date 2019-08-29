@@ -176,6 +176,7 @@ MonoBehaviour:
   rigidB: {fileID: 7970693285408724138}
   speed: 10
   collisionDirection: {fileID: 3701291428846681584}
+  bonfire: {fileID: 8419185848972663772, guid: 25e14cdac967eb64291fb83b19882aef, type: 3}
 --- !u!1 &3484046996687193028
 GameObject:
   m_ObjectHideFlags: 0

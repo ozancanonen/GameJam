@@ -19,13 +19,13 @@ public class Player : MonoBehaviour
     public GameObject bulletParticles;
     public GameObject deadParticles;
     public GameObject wall;
-    public GameObject fakeWall;
 
     private bool obstructed;
     private bool doneChanneling;
     public float channelingTime;
     private float channelingTimeCounter;
     public float knockback;
+
     public float moveSpeed;
     public float playerHealth;
     public float lanternDurabilityMagnifier;
@@ -83,12 +83,13 @@ public class Player : MonoBehaviour
             if (Input.GetButtonDown(Skill2MovementInputButtons))
             {
                 Lantern();
-            }
-            GetCharacterInputs();
-            Animate();
-            ProjectileRotationManager();
-
+            }  
+ 
+            
         }
+        ProjectileRotationManager();
+        GetCharacterInputs();
+        Animate();
         if (nearAlter && lanternDurability < 100)
         {
             lanternDurability += lanternDurabilityMagnifier * Time.deltaTime;
@@ -182,7 +183,6 @@ public class Player : MonoBehaviour
             if (playerHealth <= 0)
             {
                 Dead();
-                gm.PlayerIsDeath(gameObject.tag);
                 Destroy(gameObject);
             }
         }
@@ -356,11 +356,14 @@ public class Player : MonoBehaviour
         }
         return trans;
     }
-    void Dead()
+    public void Dead()
     {
-        particleObject=Instantiate(deadParticles, firingPos.position, firingPos.rotation);
+        particleObject =Instantiate(deadParticles, firingPos.position, firingPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
+        
         StartCoroutine(gm.DestroyThisAFter(particleObject, 1));
+        gm.PlayerIsDeath(gameObject.tag);
+        Destroy(gameObject);
     }
 
     IEnumerator attackStateManageWithDelay(float attackStateWillBe, float afterThisMuchTime)

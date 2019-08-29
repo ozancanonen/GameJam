@@ -5321,8 +5321,6 @@ MonoBehaviour:
   deadParticles: {fileID: 8113384502658559447, guid: c15d438490c8ed9419f27dc7610fbec9,
     type: 3}
   wall: {fileID: 3461304235849806954, guid: 4f166a47ffe66d14d84ff8c2a713426b, type: 3}
-  fakeWall: {fileID: 5973862783429338963, guid: ecbde66d7550abd4bb0ad43da1e89e7b,
-    type: 3}
   channelingTime: 0.2
   knockback: 5000
   moveSpeed: 10
@@ -7549,8 +7547,6 @@ MonoBehaviour:
   deadParticles: {fileID: 8113384502658559447, guid: b15daec946f4aad4384824fc2be03231,
     type: 3}
   wall: {fileID: 3461304235849806954, guid: 4f166a47ffe66d14d84ff8c2a713426b, type: 3}
-  fakeWall: {fileID: 5973862783429338963, guid: ecbde66d7550abd4bb0ad43da1e89e7b,
-    type: 3}
   channelingTime: 1
   knockback: 5000
   moveSpeed: 10

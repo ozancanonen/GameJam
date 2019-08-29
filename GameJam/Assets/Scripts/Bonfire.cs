@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Bonfire : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float lifetime = 6;
+    
     void Start()
     {
-        
+        Destroy(gameObject, lifetime);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        
+        switch(col.gameObject.tag)
+        {
+            case "Player1":
+            case "Player2":
+                col.gameObject.GetComponent<Player>().Dead();
+                break;
+        }
     }
 }

@@ -9,20 +9,14 @@ public class Construct : MonoBehaviour
     private bool move = true;
     private Vector3 direction;
     public GameObject collisionDirection;
-    private GameManager gm;
-    private bool bonfire;
-    // Start is called before the first frame update
-
-    private void Start()
-    {
-        gm = gameObject.GetComponentInParent<GameManager>();
-    }
+    public GameObject bonfire;
+    
     public void Move(Vector3 d, Quaternion rotation)
     {
         print("I am moving");
         direction = d;
         collisionDirection.transform.rotation = rotation;
-        if(move && !bonfire)
+        if(move)
             StartCoroutine(Travel());
     }
     IEnumerator Travel()
@@ -40,35 +34,18 @@ public class Construct : MonoBehaviour
             case "Destroyer":
             case "Wall":
             case "Construct":
-                StopAllCoroutines();
-                move = false;
-                break;
             case "Player1":
             case "Player2":
-                if (bonfire)
-                {
-                    Destroy(col.gameObject);
-                }
                 StopAllCoroutines();
                 move = false;
                 break;
             case "Player1Bullet":
             case "Player2Bullet":
-                if (!bonfire)
-                {
-                    bonfire = true;
                     move = false;
                     StopAllCoroutines();
-                    GameObject particleObject = Instantiate(gm.flameParticle, gameObject.transform.position + new Vector3(0, 0, -4f),
-                    Quaternion.Euler(270f, 90f, 0f));
-                    particleObject.transform.parent = gm.particleParentObject.transform;
-                    particleObject = Instantiate(gm.layer2Light, gameObject.transform.position, Quaternion.identity);
-                    particleObject.transform.parent = gm.particleParentObject.transform;
-                    gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-                    StartCoroutine(gm.DestroyThisAFter(gameObject, 6));
-                    StartCoroutine(gm.DestroyThisAFter(particleObject, 6));
-                }
+                GameObject BF = Instantiate(bonfire, gameObject.transform.position, bonfire.transform.rotation);
                 Destroy(col.gameObject);
+                Destroy(gameObject);
                 break;
         }
     }
