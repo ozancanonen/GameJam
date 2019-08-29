@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     private bool lanternOn=true;
     private bool inMeleeRange;
     private bool immobolized = false;
+    private bool isAttacking = false;
     public Slider HealthSliderObject;
     public Slider lanternDurabilitySlider;
     private Vector2 movement;
@@ -70,9 +71,9 @@ public class Player : MonoBehaviour
                 if (canShoot)
                 {
                     Attack();
+                    anim.SetFloat("attackState",1);
                 }
             }
-
             if (Input.GetButtonDown(Skill1MovementInputButtons))
             {
                 StartCoroutine(buildConstruct(1f));
@@ -86,7 +87,10 @@ public class Player : MonoBehaviour
             ProjectileRotationManager();
 
         }
+        //if (Input.GetButtonUp(fireMovementInputButtons))
+        //{
 
+        //}
         if (nearAlter && lanternDurability < 100)
         {
             lanternDurability += lanternDurabilityMagnifier * Time.deltaTime;
@@ -242,9 +246,13 @@ public class Player : MonoBehaviour
             if (!Input.GetButton(fireMovementInputButtons))
             {
                 i++;
-                if (i < 2 && inMeleeRange)
+                if (i < 2)
                 {
-                    Interaction();
+                    StartCoroutine(attackStateManageWithDelay(0, 0.2f));
+                    if (inMeleeRange)
+                    {
+                        Interaction();
+                    }
                 }
             }
             yield return null;
@@ -266,7 +274,6 @@ public class Player : MonoBehaviour
             switch (gameObject.tag)
             {
                 case "Player1":
-                    Debug.Log(ForceDirection());
                     if (meleeInteraction.gameObject.tag == "Player2")
                     {
                         meleeInteraction.AddForce(ForceDirection() * knockback);
@@ -338,6 +345,12 @@ public class Player : MonoBehaviour
         StartCoroutine(gm.DestroyThisAFter(particleObject, 1));
     }
 
+    IEnumerator attackStateManageWithDelay(float attackStateWillBe, float afterThisMuchTime)
+    {
+        yield return new WaitForSeconds(afterThisMuchTime);
+        anim.SetFloat("attackState", attackStateWillBe);
+    }
+
     IEnumerator buildConstruct(float waitingtime)
     {
         StartCoroutine(Immobolize(waitingtime));
@@ -359,6 +372,7 @@ public class Player : MonoBehaviour
             immobolized = true;
             if (channelingTimeCounter < Time.fixedTime)
             {
+                StartCoroutine(attackStateManageWithDelay(0, 0));
                 Firebolt();
                 canShoot = true;
                 channelingTimeCounter = channelingTime + Time.fixedTime;
