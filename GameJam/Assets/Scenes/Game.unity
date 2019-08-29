@@ -5322,7 +5322,7 @@ MonoBehaviour:
     type: 3}
   wall: {fileID: 3461304235849806954, guid: 4f166a47ffe66d14d84ff8c2a713426b, type: 3}
   channelingTime: 0.2
-  knockback: 5000
+  knockback: 100
   moveSpeed: 10
   playerHealth: 100
   lanternDurabilityMagnifier: 20

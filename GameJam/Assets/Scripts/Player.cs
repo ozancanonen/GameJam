@@ -83,9 +83,7 @@ public class Player : MonoBehaviour
             if (Input.GetButtonDown(Skill2MovementInputButtons))
             {
                 Lantern();
-            }  
- 
-            
+            }
         }
         ProjectileRotationManager();
         GetCharacterInputs();
@@ -294,8 +292,9 @@ public class Player : MonoBehaviour
                 case "Player1":
                     if (meleeInteraction.gameObject.tag == "Player2")
                     {
+                        print("Knocking player 2 back");
                         meleeInteraction.AddForce(ForceDirection() * knockback);
-                        meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1);
+                        StartCoroutine(meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1));
                         meleeInteraction.gameObject.GetComponent<Player>().TakeDamage(0);
                         
                     }
@@ -308,8 +307,9 @@ public class Player : MonoBehaviour
                 case "Player2":
                     if (meleeInteraction.gameObject.tag == "Player1")
                     {
+                        print("Knocking player 1 back");
                         meleeInteraction.AddForce(ForceDirection() * knockback);
-                        meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1);
+                        StartCoroutine(meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1));
                         meleeInteraction.gameObject.GetComponent<Player>().TakeDamage(0);
 
                     }
