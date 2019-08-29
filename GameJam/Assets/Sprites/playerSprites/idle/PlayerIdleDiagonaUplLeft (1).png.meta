@@ -1,19 +1,7 @@
 fileFormatVersion: 2
-guid: 1d43d3a03c2a9cd4c95735366d0ef89c
+guid: 4352976ff3a049649bce4dcce617bce1
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -4506904005540001195
-    second: DiagonalUpLeft-Sheet_0
-  - first:
-      213: 7796522680693591052
-    second: DiagonalUpLeft-Sheet_1
-  - first:
-      213: -7797126657297239328
-    second: DiagonalUpLeft-Sheet_2
-  - first:
-      213: -4253529033593045524
-    second: DiagonalUpLeft-Sheet_3
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -52,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -120,91 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: DiagonalUpLeft-Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 64
-        height: 72
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e0ad8e9ca2e5ba4d9e3a5818b937b78
-      internalID: -4506904005540001195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DiagonalUpLeft-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 12
-        width: 64
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f63534d9486b7464f94210ae0d9e3a74
-      internalID: 7796522680693591052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DiagonalUpLeft-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 12
-        width: 64
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2bb32c06bf1dc184a89e2f0ed7cb34e5
-      internalID: -7797126657297239328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DiagonalUpLeft-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 12
-        width: 64
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84a60c9ded759ed4cb47da1a4e6368de
-      internalID: -4253529033593045524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []

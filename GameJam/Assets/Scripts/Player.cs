@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     private bool lanternOn=true;
     private bool inMeleeRange;
     private bool immobolized = false;
-    private bool isAttacking = false;
+    //private bool isAttacking = false;
     public Slider HealthSliderObject;
     public Slider lanternDurabilitySlider;
     private Vector2 movement;
@@ -87,10 +87,6 @@ public class Player : MonoBehaviour
             ProjectileRotationManager();
 
         }
-        //if (Input.GetButtonUp(fireMovementInputButtons))
-        //{
-
-        //}
         if (nearAlter && lanternDurability < 100)
         {
             lanternDurability += lanternDurabilityMagnifier * Time.deltaTime;
@@ -108,7 +104,7 @@ public class Player : MonoBehaviour
         //we make the player move according to the player Input, we multiplied the value with time to make the movement at a constant speed 
         //not relative to fps
         if (!immobolized)
-            rb.MovePosition(rb.position + movement * moveSpeed*Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + movement.normalized * moveSpeed*Time.fixedDeltaTime);
     }
 
     //returns a value between -1 and 1 according to the pressed buttons that are defined for Horizontal in Unity(they are changeable)
@@ -182,6 +178,7 @@ public class Player : MonoBehaviour
         {
             if (lanternDurability >= 100)
             {
+                gm.audioManager.Play("LanternIgnite");
                 lanternObject.SetActive(true);
                 lanternOn = true;
             }
@@ -353,6 +350,7 @@ public class Player : MonoBehaviour
 
     IEnumerator buildConstruct(float waitingtime)
     {
+        gm.audioManager.Play("Construct");
         StartCoroutine(Immobolize(waitingtime));
         yield return new WaitForSeconds(waitingtime);
         particleObject = Instantiate(wall, bulletSpawnPos.position, wall.transform.rotation);
