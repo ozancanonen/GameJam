@@ -35,7 +35,6 @@ public class Construct : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        print("Tag is: " + col.gameObject.tag);
         switch (col.gameObject.tag)
         {
             case "Destroyer":

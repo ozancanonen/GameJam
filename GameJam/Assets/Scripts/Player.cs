@@ -266,6 +266,7 @@ public class Player : MonoBehaviour
             switch (gameObject.tag)
             {
                 case "Player1":
+                    Debug.Log(ForceDirection());
                     if (meleeInteraction.gameObject.tag == "Player2")
                     {
                         meleeInteraction.AddForce(ForceDirection() * knockback);

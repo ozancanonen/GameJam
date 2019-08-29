@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1249,6 +1249,12 @@ Transform:
   m_Father: {fileID: 471130138}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &544127416 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9212224674831413779, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8505536532993111008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &547710837
 GameObject:
   m_ObjectHideFlags: 0
@@ -5870,7 +5876,7 @@ MonoBehaviour:
   Skill2MovementInputButtons: Skill2Player2
   particleParentObject: {fileID: 569408915}
   bullet: {fileID: 4781262221777038729, guid: 35f6eed567dec5b469c73c98f7e232e9, type: 3}
-  lanternObject: {fileID: 0}
+  lanternObject: {fileID: 544127416}
   bulletParticles: {fileID: 998363604263136333, guid: c5c2ae41564936948830d18c71a176a9,
     type: 3}
   deadParticles: {fileID: 8113384502658559447, guid: b15daec946f4aad4384824fc2be03231,
