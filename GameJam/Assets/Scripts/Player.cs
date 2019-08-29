@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     private bool lanternOn=true;
     private bool inMeleeRange;
     private bool immobolized = false;
+    public bool isDizzy=false;
     //private bool isAttacking = false;
     public Slider HealthSliderObject;
     public Slider lanternDurabilitySlider;
@@ -181,8 +182,6 @@ public class Player : MonoBehaviour
             if (playerHealth <= 0)
             {
                 Dead();
-                anim.SetTrigger("Dead");
-                Destroy(gameObject);
             }
         }
     }
@@ -296,6 +295,7 @@ public class Player : MonoBehaviour
                         print("Knocking player 2 back");
                         meleeInteraction.AddForce(ForceDirection() * knockback);
                         StartCoroutine(meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1));
+                        StartCoroutine(meleeInteraction.gameObject.GetComponent<Player>().DizzyFor(1));
                         meleeInteraction.gameObject.GetComponent<Player>().TakeDamage(0);
                         
                     }
@@ -311,6 +311,7 @@ public class Player : MonoBehaviour
                         print("Knocking player 1 back");
                         meleeInteraction.AddForce(ForceDirection() * knockback);
                         StartCoroutine(meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1));
+                        StartCoroutine(meleeInteraction.gameObject.GetComponent<Player>().DizzyFor(1));
                         meleeInteraction.gameObject.GetComponent<Player>().TakeDamage(0);
 
                     }
@@ -361,10 +362,9 @@ public class Player : MonoBehaviour
     {
         particleObject =Instantiate(deadParticles, firingPos.position, firingPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
-        
+        anim.SetTrigger("Dead");
         StartCoroutine(gm.DestroyThisAFter(particleObject, 1));
-        gm.PlayerIsDeath(gameObject.tag);
-        Destroy(gameObject);
+        StartCoroutine(gm.PlayerIsDeath(gameObject.tag));
     }
 
     IEnumerator attackStateManageWithDelay(float attackStateWillBe, float afterThisMuchTime)
@@ -405,4 +405,13 @@ public class Player : MonoBehaviour
         canShoot = true;
         immobolized = false;
     }
+
+    IEnumerator DizzyFor(float time)
+    {
+        anim.SetBool("Dizzy", true);
+        yield return new WaitForSeconds(time);
+        anim.SetBool("Dizzy", false);
+
+    }
+
 }
