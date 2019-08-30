@@ -376,9 +376,11 @@ public class Player : MonoBehaviour
 
     IEnumerator buildConstruct(float waitingtime)
     {
+        anim.SetFloat("attackState", 1);
         gm.audioManager.Play("Construct");
         StartCoroutine(Immobolize(waitingtime));
         yield return new WaitForSeconds(waitingtime);
+        anim.SetFloat("attackState", 0);
         particleObject = Instantiate(wall, bulletSpawnPos.position, wall.transform.rotation);
         particleObject.GetComponent<Construct>().collisionDirection.transform.rotation = firingPos.rotation;
         particleObject.transform.parent = particleParentObject.transform;
