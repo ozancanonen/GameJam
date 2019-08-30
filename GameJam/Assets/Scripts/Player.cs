@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
     private bool doingInteraction;
     void Start()
     {
+        lanternOn = lanternObject.activeSelf;
         canShoot = true;
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
