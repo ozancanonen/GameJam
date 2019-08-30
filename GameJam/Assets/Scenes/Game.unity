@@ -26118,7 +26118,7 @@ PrefabInstance:
     - target: {fileID: 9212224674831413779, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4740273031257827992, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
         type: 3}
@@ -26505,8 +26505,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBulletTag: player2Bullet
-  horizontalMovementInputButtons: Horizontal
-  verticalMovementInputButtons: Vertical
+  horizontalMovementInputButtons: Horizontal2
+  verticalMovementInputButtons: Vertical2
   fireMovementInputButtons: FirePlayer2
   Skill1MovementInputButtons: Skill1Player2
   Skill2MovementInputButtons: Skill2Player2

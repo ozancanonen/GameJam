@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
+    public bool consoleController;
     public string enemyBulletTag;
     public string horizontalMovementInputButtons;
     public string verticalMovementInputButtons;
@@ -60,6 +62,9 @@ public class Player : MonoBehaviour
     private float lanternDurability = 100;
     private float waitTime;
     private bool doingInteraction;
+
+
+
     void Start()
     {
         lanternOn = lanternObject.activeSelf;
@@ -68,7 +73,16 @@ public class Player : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         sp = gameObject.GetComponent < SpriteRenderer>();
         gm = GetComponentInParent<GameManager>();
-
+        if (!consoleController&&gameObject.tag=="Player1")
+        {
+            horizontalMovementInputButtons = "Horizontal1Keyboard";
+            verticalMovementInputButtons= "Vertical1Keyboard";
+        }
+        if (!consoleController && gameObject.tag == "Player2")
+        {
+            horizontalMovementInputButtons = "Horizontal2Keyboard";
+            verticalMovementInputButtons = "Vertical2Keyboard";
+        }
     }
 
     void Update()

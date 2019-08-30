@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator PlayerIsDeath(string playerTag)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         if (playerTag == "Player1")
         {
             Player2HasWonText.SetActive(true);
