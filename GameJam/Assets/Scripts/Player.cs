@@ -360,6 +360,7 @@ public class Player : MonoBehaviour
     }
     public void Dead()
     {
+        immobolized = true;
         particleObject =Instantiate(deadParticles, firingPos.position, firingPos.rotation);
         particleObject.transform.parent = particleParentObject.transform;
         anim.SetTrigger("Dead");

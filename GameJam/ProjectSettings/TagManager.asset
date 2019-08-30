@@ -57,3 +57,6 @@ TagManager:
   - name: Lights
     uniqueID: 2985604355
     locked: 0
+  - name: Bonfiire
+    uniqueID: 3920012551
+    locked: 0
