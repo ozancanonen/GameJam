@@ -24078,6 +24078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cd9707ea5a39743a4bbc302ce85b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consoleController: 0
   enemyBulletTag: player2Bullet
   horizontalMovementInputButtons: Horizontal1
   verticalMovementInputButtons: Vertical1
@@ -26504,6 +26505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cd9707ea5a39743a4bbc302ce85b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consoleController: 1
   enemyBulletTag: player2Bullet
   horizontalMovementInputButtons: Horizontal2
   verticalMovementInputButtons: Vertical2
