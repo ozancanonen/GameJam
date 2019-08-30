@@ -13,11 +13,11 @@ public class GameManager : MonoBehaviour
     public GameObject flameParticle;
     public GameObject layer2Light;
     public GameObject particleParentObject;
-
+    public GameObject eyesObject;
     public AudioManager audioManager;
-
-
-    // Update is called once per frame
+    private Vector2 screenSize = new Vector2(Screen.width, Screen.height);
+    private float timeCounter;
+    public float timeBetweenEyesSpawn;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -31,7 +31,23 @@ public class GameManager : MonoBehaviour
                 Pause();
             }
         }
+        timeCounter += Time.deltaTime;
+        if(timeCounter> timeBetweenEyesSpawn)
+        {
+            spawnEyes();
+            timeCounter = 0;
+        }
+
     }
+    private void spawnEyes()
+    {
+        float x = Random.Range(-10,10);//if scene sizew changes gotta change as well
+        float y = Random.Range(-10, 10);
+        GameObject eyes = Instantiate(eyesObject, new Vector3(x,y), Quaternion.identity);
+        Destroy(eyes,1);
+    }
+
+
     public IEnumerator footStepSounds(string sound1, string sound2, float waitingTime)
     {
         string[] currentSound = { sound1 , sound2};
