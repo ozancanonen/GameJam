@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5100509173292974580}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &8285027065616334604
 SpriteMask:
@@ -75,8 +75,8 @@ SpriteMask:
   m_BackSortingLayerID: -1309362941
   m_FrontSortingLayer: 1
   m_BackSortingLayer: 1
-  m_FrontSortingOrder: 3
-  m_BackSortingOrder: 2
+  m_FrontSortingOrder: 5
+  m_BackSortingOrder: 4
   m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
 --- !u!1 &7761672066801285278
@@ -108,7 +108,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5100509173292974580}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &5750909040304952290
 SpriteMask:
@@ -154,8 +154,8 @@ SpriteMask:
   m_BackSortingLayerID: -1309362941
   m_FrontSortingLayer: 1
   m_BackSortingLayer: 1
-  m_FrontSortingOrder: 2
-  m_BackSortingOrder: 0
+  m_FrontSortingOrder: 4
+  m_BackSortingOrder: 3
   m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
 --- !u!1 &8800605377365999374
@@ -187,8 +187,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -0.52389336}
   m_LocalScale: {x: 0.25000006, y: 0.25000006, z: 0.25}
   m_Children:
-  - {fileID: 304260888789584574}
   - {fileID: 9047405911294789767}
+  - {fileID: 304260888789584574}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -236,8 +236,8 @@ SpriteMask:
   m_BackSortingLayerID: -1309362941
   m_FrontSortingLayer: 1
   m_BackSortingLayer: 1
-  m_FrontSortingOrder: 4
-  m_BackSortingOrder: 3
+  m_FrontSortingOrder: 6
+  m_BackSortingOrder: 5
   m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
 --- !u!58 &8599768423457709231
