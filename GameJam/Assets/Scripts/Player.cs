@@ -301,7 +301,6 @@ public class Player : MonoBehaviour
                 case "Player1":
                     if (meleeInteraction.gameObject.tag == "Player2")
                     {
-                        print("Knocking player 2 back");
                         meleeInteraction.AddForce(ForceDirection() * knockback);
                         StartCoroutine(meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1));
                         StartCoroutine(meleeInteraction.gameObject.GetComponent<Player>().DizzyFor(1));
@@ -310,14 +309,12 @@ public class Player : MonoBehaviour
                     }
                     if (meleeInteraction.gameObject.tag == "Construct")
                     {
-                        print("Hitting the Construct");
                         moveConstruct();
                     }
                     break;
                 case "Player2":
                     if (meleeInteraction.gameObject.tag == "Player1")
                     {
-                        print("Knocking player 1 back");
                         meleeInteraction.AddForce(ForceDirection() * knockback);
                         StartCoroutine(meleeInteraction.gameObject.GetComponent<Player>().Immobolize(1));
                         StartCoroutine(meleeInteraction.gameObject.GetComponent<Player>().DizzyFor(1));
