@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public GameObject deadParticles;
     public GameObject wall;
     public GameObject wallBump;
+    public GameObject playerHearth;
+    public GameObject playerLanternHearth;
 
     private bool obstructed;
     private bool doneChanneling;
@@ -97,6 +99,7 @@ public class Player : MonoBehaviour
             lanternDurabilitySlider.value = lanternDurability;
             if (lanternDurability >= 100)
             {
+                playerLanternHearth.GetComponent<Animator>().SetTrigger("Unbreake");
                 Lantern();
             }
         }
@@ -181,6 +184,7 @@ public class Player : MonoBehaviour
     {
         if (lanternOn)
         {
+            playerLanternHearth.GetComponent<Animator>().SetTrigger("Breake");
             Lantern();
             lanternObject.SetActive(false);
             lanternDurability = 0;
@@ -192,6 +196,7 @@ public class Player : MonoBehaviour
             HealthSliderObject.value = playerHealth;
             if (playerHealth <= 0)
             {
+                playerHearth.GetComponent<Animator>().SetTrigger("Breake");
                 Dead();
             }
         }
