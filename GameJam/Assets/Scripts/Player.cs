@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     public GameObject wallBump;
     public GameObject playerHearth;
     public GameObject playerLanternHearth;
+    public GameObject lanternDurabilityBarFill;
+    public GameObject lanternDurabilityBar;
+
 
     private bool obstructed;
     private bool doneChanneling;
@@ -96,9 +99,11 @@ public class Player : MonoBehaviour
         if (nearAlter && lanternDurability < 100)
         {
             lanternDurability += lanternDurabilityMagnifier * Time.deltaTime;
-            lanternDurabilitySlider.value = lanternDurability;
+            Debug.Log(lanternDurabilityBarFill.transform.localScale.x);
+            lanternDurabilityBarFill.transform.localScale = new Vector3(lanternDurability/100, lanternDurabilityBarFill.transform.localScale.y, 1);
             if (lanternDurability >= 100)
             {
+                lanternDurabilityBar.SetActive(false);
                 playerLanternHearth.GetComponent<Animator>().SetTrigger("Unbreake");
                 Lantern();
             }
@@ -177,6 +182,7 @@ public class Player : MonoBehaviour
             obstructed = false;
         if (col.tag == "Altar")
         {
+            Debug.Log("altar exit");
             nearAlter = false;
         }
     }
@@ -188,7 +194,8 @@ public class Player : MonoBehaviour
             Lantern();
             lanternObject.SetActive(false);
             lanternDurability = 0;
-            lanternDurabilitySlider.value = lanternDurability;
+            lanternDurabilityBar.SetActive(true);
+            lanternDurabilityBarFill.transform.localScale =new Vector3( 0f, lanternDurabilityBarFill.transform.localScale.y,1);
         }
         else
         {
