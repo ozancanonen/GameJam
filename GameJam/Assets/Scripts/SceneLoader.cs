@@ -8,6 +8,7 @@ public class SceneLoader : MonoBehaviour
 {
     private float currentSceneNumber;
     public float menuSceneNumber;
+    public Slider loadingSlider;
 
     private void Start()
     {
@@ -28,6 +29,25 @@ public class SceneLoader : MonoBehaviour
     public void LoadLevel(string SceneName)
     {
         SceneManager.LoadScene(SceneName);
+    }
+
+    public void LoadLevelAsync(string SceneName)
+    {
+        StartCoroutine(LoadAsync(SceneName));
+    }
+
+    public IEnumerator LoadAsync(string SceneName)
+    {
+        AsyncOperation operation =SceneManager.LoadSceneAsync(SceneName);
+
+        while (!operation.isDone)
+        {
+
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            loadingSlider.value = progress;
+            yield return null;
+        }
+
     }
     public void Replay()
     {
