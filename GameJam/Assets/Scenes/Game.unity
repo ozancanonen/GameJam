@@ -25307,6 +25307,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5520410461312119058, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1978774188868130150, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
         type: 3}
       propertyPath: m_FrontSortingOrder
@@ -25371,11 +25376,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackSortingOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5520410461312119058, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e11af7ccb289ea48a6bf53402a48a1f, type: 3}
@@ -25628,7 +25628,7 @@ MonoBehaviour:
   wallBump: {fileID: 2627485805542924782, guid: 5caa4a13d3e2ac94f9cbf26fc01cdb61,
     type: 3}
   channelingTime: 1
-  knockback: 5000
+  knockback: 100
   moveSpeed: 10
   playerHealth: 100
   lanternDurabilityMagnifier: 20
@@ -26292,6 +26292,11 @@ PrefabInstance:
       propertyPath: m_BackSortingOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 553358170812409295, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1908759041040044926, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
         type: 3}
       propertyPath: m_FrontSortingOrder
@@ -26391,11 +26396,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 553358170812409295, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e11af7ccb289ea48a6bf53402a48a1f, type: 3}

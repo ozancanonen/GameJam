@@ -181,6 +181,7 @@ public class Player : MonoBehaviour
         if (lanternOn)
         {
             Lantern();
+            lanternObject.SetActive(false);
             lanternDurability = 0;
             lanternDurabilitySlider.value = lanternDurability;
         }
