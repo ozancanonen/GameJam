@@ -24078,7 +24078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cd9707ea5a39743a4bbc302ce85b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consoleController: 0
   enemyBulletTag: player2Bullet
   horizontalMovementInputButtons: Horizontal1
   verticalMovementInputButtons: Vertical1
@@ -26119,7 +26118,7 @@ PrefabInstance:
     - target: {fileID: 9212224674831413779, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4740273031257827992, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
         type: 3}
@@ -26505,10 +26504,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cd9707ea5a39743a4bbc302ce85b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consoleController: 1
   enemyBulletTag: player2Bullet
-  horizontalMovementInputButtons: Horizontal2
-  verticalMovementInputButtons: Vertical2
+  horizontalMovementInputButtons: Horizontal
+  verticalMovementInputButtons: Vertical
   fireMovementInputButtons: FirePlayer2
   Skill1MovementInputButtons: Skill1Player2
   Skill2MovementInputButtons: Skill2Player2
