@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public int consoleController1;
+    public int consoleController2;
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject endOfLevelMenuUI;

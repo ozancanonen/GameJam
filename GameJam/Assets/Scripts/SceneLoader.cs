@@ -25,6 +25,11 @@ public class SceneLoader : MonoBehaviour
             }
         }
     }
+    public void Player1usingController()
+    {
+        PlayerPrefs.SetFloat("consoleController1",1);
+    }
+
 
     public void LoadLevel(string SceneName)
     {
