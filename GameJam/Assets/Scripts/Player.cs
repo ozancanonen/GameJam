@@ -60,6 +60,9 @@ public class Player : MonoBehaviour
     private float lanternDurability = 100;
     private float waitTime;
     private bool doingInteraction;
+
+
+
     void Start()
     {
         lanternOn = lanternObject.activeSelf;
@@ -68,7 +71,16 @@ public class Player : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         sp = gameObject.GetComponent < SpriteRenderer>();
         gm = GetComponentInParent<GameManager>();
-
+        if (gm.consoleController1==0&&gameObject.tag=="Player1")
+        {
+            horizontalMovementInputButtons = "Horizontal1Keyboard";
+            verticalMovementInputButtons= "Vertical1Keyboard";
+        }
+        if (gm.consoleController2==0&& gameObject.tag == "Player2")
+        {
+            horizontalMovementInputButtons = "Horizontal2Keyboard";
+            verticalMovementInputButtons = "Vertical2Keyboard";
+        }
     }
 
     void Update()
