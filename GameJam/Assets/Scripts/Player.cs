@@ -13,12 +13,13 @@ public class Player : MonoBehaviour
     public string Skill1MovementInputButtons;
     public string Skill2MovementInputButtons;
 
-    public GameObject particleParentObject;
+    public GameObject prefabParentObject;
     public GameObject bullet;
     public GameObject lanternObject;
     public GameObject bulletParticles;
     public GameObject deadParticles;
     public GameObject wall;
+    public GameObject wallBump;
 
     private bool obstructed;
     private bool doneChanneling;
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
     public float lanternDurabilityMagnifier;
     private bool canShoot;
     private bool nearAlter;
-    private bool lanternOn=true;
+    private bool lanternOn=false;
     private bool inMeleeRange;
     private bool immobolized = false;
     public bool isDizzy=false;
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour
     public Transform firingPos;
     public Transform bulletSpawnPos;
     public Transform particleSpawnPos;
-    private GameObject particleObject;
+    private GameObject prefabObject;
     private Rigidbody2D meleeInteraction;
 
     private SpriteRenderer sp;
@@ -115,6 +116,14 @@ public class Player : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw(horizontalMovementInputButtons);
         movement.y = Input.GetAxisRaw(verticalMovementInputButtons);
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Wall")
+        {
+            prefabObject = Instantiate(wallBump,col.contacts[0].point, firingPos.rotation*Quaternion.Euler(1,1,-90f));
+            Destroy(prefabObject, 0.5f);
+        }
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -277,9 +286,9 @@ public class Player : MonoBehaviour
     void Firebolt()
     {
         Instantiate(bullet, bulletSpawnPos.position, firingPos.rotation);
-        particleObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
-        particleObject.transform.parent = particleParentObject.transform;
-        StartCoroutine(gm.DestroyThisAFter(particleObject, 1));
+        prefabObject = Instantiate(bulletParticles, particleSpawnPos.position, particleSpawnPos.rotation);
+        prefabObject.transform.parent = prefabParentObject.transform;
+        StartCoroutine(gm.DestroyThisAFter(prefabObject, 1));
         canShoot = true;
     }
 
@@ -361,10 +370,10 @@ public class Player : MonoBehaviour
     public void Dead()
     {
         immobolized = true;
-        particleObject =Instantiate(deadParticles, firingPos.position, firingPos.rotation);
-        particleObject.transform.parent = particleParentObject.transform;
+        prefabObject =Instantiate(deadParticles, firingPos.position, firingPos.rotation);
+        prefabObject.transform.parent = prefabParentObject.transform;
         anim.SetTrigger("Dead");
-        StartCoroutine(gm.DestroyThisAFter(particleObject, 1));
+        StartCoroutine(gm.DestroyThisAFter(prefabObject, 1));
         StartCoroutine(gm.PlayerIsDeath(gameObject.tag));
     }
 
@@ -381,9 +390,9 @@ public class Player : MonoBehaviour
         StartCoroutine(Immobolize(waitingtime));
         yield return new WaitForSeconds(waitingtime);
         anim.SetFloat("attackState", 0);
-        particleObject = Instantiate(wall, bulletSpawnPos.position, wall.transform.rotation);
-        particleObject.GetComponent<Construct>().collisionDirection.transform.rotation = firingPos.rotation;
-        particleObject.transform.parent = particleParentObject.transform;
+        prefabObject = Instantiate(wall, bulletSpawnPos.position, wall.transform.rotation);
+        prefabObject.GetComponent<Construct>().collisionDirection.transform.rotation = firingPos.rotation;
+        prefabObject.transform.parent = prefabParentObject.transform;
     }
     IEnumerator Immobolize(float channeling)
     {

@@ -6434,7 +6434,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.66
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -23288,7 +23288,7 @@ MonoBehaviour:
   fireMovementInputButtons: FirePlayer1
   Skill1MovementInputButtons: Skill1Player1
   Skill2MovementInputButtons: Skill2Player1
-  particleParentObject: {fileID: 569408915}
+  prefabParentObject: {fileID: 569408915}
   bullet: {fileID: 4781262221777038729, guid: 320325a6343079c40bb9fdbbef9d2157, type: 3}
   lanternObject: {fileID: 3961161967138524447}
   bulletParticles: {fileID: 998363604263136333, guid: 41ab4f6b88fe28644b20581e71134e81,
@@ -23296,6 +23296,8 @@ MonoBehaviour:
   deadParticles: {fileID: 8113384502658559447, guid: c15d438490c8ed9419f27dc7610fbec9,
     type: 3}
   wall: {fileID: 3461304235849806954, guid: 4f166a47ffe66d14d84ff8c2a713426b, type: 3}
+  wallBump: {fileID: 2627485805542924782, guid: 5caa4a13d3e2ac94f9cbf26fc01cdb61,
+    type: 3}
   channelingTime: 0.2
   knockback: 100
   moveSpeed: 10
@@ -25085,8 +25087,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142783519}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.446, y: -0.11, z: 0}
-  m_LocalScale: {x: 3.1876016, y: 3.0873923, z: 1.5906194}
+  m_LocalPosition: {x: 0.961, y: 0.052, z: 0}
+  m_LocalScale: {x: 2.9031527, y: 3.0379941, z: 1.5906194}
   m_Children:
   - {fileID: 2015398024}
   m_Father: {fileID: 115704547}
@@ -25223,7 +25225,7 @@ PrefabInstance:
     - target: {fileID: 9212224674831413779, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4740273031257827992, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
         type: 3}
@@ -25305,11 +25307,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5520410461312119058, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1978774188868130150, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
         type: 3}
       propertyPath: m_FrontSortingOrder
@@ -25374,6 +25371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackSortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520410461312119058, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e11af7ccb289ea48a6bf53402a48a1f, type: 3}
@@ -25615,7 +25617,7 @@ MonoBehaviour:
   fireMovementInputButtons: FirePlayer2
   Skill1MovementInputButtons: Skill1Player2
   Skill2MovementInputButtons: Skill2Player2
-  particleParentObject: {fileID: 569408915}
+  prefabParentObject: {fileID: 569408915}
   bullet: {fileID: 4781262221777038729, guid: 58a2bd76d0bc83a478144695ea6acab1, type: 3}
   lanternObject: {fileID: 544127416}
   bulletParticles: {fileID: 998363604263136333, guid: c5c2ae41564936948830d18c71a176a9,
@@ -25623,6 +25625,8 @@ MonoBehaviour:
   deadParticles: {fileID: 8113384502658559447, guid: b15daec946f4aad4384824fc2be03231,
     type: 3}
   wall: {fileID: 3461304235849806954, guid: 4f166a47ffe66d14d84ff8c2a713426b, type: 3}
+  wallBump: {fileID: 2627485805542924782, guid: 5caa4a13d3e2ac94f9cbf26fc01cdb61,
+    type: 3}
   channelingTime: 1
   knockback: 5000
   moveSpeed: 10
@@ -26288,11 +26292,6 @@ PrefabInstance:
       propertyPath: m_BackSortingOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 553358170812409295, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1908759041040044926, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
         type: 3}
       propertyPath: m_FrontSortingOrder
@@ -26392,6 +26391,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 553358170812409295, guid: 6e11af7ccb289ea48a6bf53402a48a1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e11af7ccb289ea48a6bf53402a48a1f, type: 3}
