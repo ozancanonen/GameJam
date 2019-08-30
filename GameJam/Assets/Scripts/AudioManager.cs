@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public string File;
 
     public Sound[] sounds;//the array list of Sound script which will contain audio files
     [HideInInspector] public bool mute=false;
